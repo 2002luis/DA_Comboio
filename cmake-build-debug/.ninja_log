@@ -1,0 +1,20 @@
+# ninja log v5
+400	1075	1677954267862215869	CMakeFiles/DA_Quimboio.dir/src/main.cpp.o	daeedbffcbedf955
+0	399	1677954267186123456	CMakeFiles/DA_Quimboio.dir/main.cpp.o	4ab60b7b8c261a32
+1	1140	1677954318986877288	CMakeFiles/DA_Quimboio.dir/src/Graph.cpp.o	59e8865dddd97d24
+401	1034	1677954267822210400	CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o	3ab20efe39b878d1
+1	400	1677954267190124002	CMakeFiles/DA_Quimboio.dir/src/Station.cpp.o	ca31903763b74a98
+1	116	1677954348200811807	DA_Quimboio	9e7d3adc40f9a1b1
+1	940	1677967407234396110	CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o	3ab20efe39b878d1
+1	1305	1677967407598389845	CMakeFiles/DA_Quimboio.dir/src/main.cpp.o	daeedbffcbedf955
+3	826	1677967458917518561	CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o	3ab20efe39b878d1
+1	1219	1677967459309516613	CMakeFiles/DA_Quimboio.dir/src/main.cpp.o	daeedbffcbedf955
+1	540	1677967844646382022	CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o	3ab20efe39b878d1
+1	815	1677967844918379139	CMakeFiles/DA_Quimboio.dir/src/main.cpp.o	daeedbffcbedf955
+1	590	1677967950029214296	CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o	3ab20efe39b878d1
+1	885	1677967950325210882	CMakeFiles/DA_Quimboio.dir/src/main.cpp.o	daeedbffcbedf955
+1	487	1677968002108603326	CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o	3ab20efe39b878d1
+0	666	1677968002288601179	CMakeFiles/DA_Quimboio.dir/src/main.cpp.o	daeedbffcbedf955
+666	780	1677968002400599843	DA_Quimboio	9e7d3adc40f9a1b1
+1	471	1677968023216350027	CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o	3ab20efe39b878d1
+471	595	1677968023340348529	DA_Quimboio	9e7d3adc40f9a1b1
