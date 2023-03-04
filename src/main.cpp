@@ -26,6 +26,7 @@ int main(){
     test.addTransport("s3","s4",200,"t2");
     test.addTransport("s4","s5",200,"t2");
 
-    std::cout << test.getPaths("s1","s2");
+    //std::cout << test.getPaths("s1","s2");
+    std::cout << test.getNodes();
 
 }

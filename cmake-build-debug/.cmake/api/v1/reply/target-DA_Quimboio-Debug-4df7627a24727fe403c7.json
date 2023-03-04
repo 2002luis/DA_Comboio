@@ -97,7 +97,8 @@
 			[
 				1,
 				3,
-				6
+				6,
+				7
 			]
 		}
 	],
@@ -140,6 +141,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/overloads.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/node.h",
 			"sourceGroupIndex" : 1
 		}
 	],

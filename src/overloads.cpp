@@ -1,6 +1,8 @@
 //
 // Created by feld on 04-03-2023.
 //
+
+#include "overloads.h"
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -22,6 +24,17 @@ std::ostream& operator<<(std::ostream& o, std::vector<std::pair<std::vector<std:
     for(auto i : p){
         for(auto j : i.first) o << j << " -> ";
         o << i.second << '\n';
+    }
+    return o;
+}
+
+std::ostream& operator<<(std::ostream& o, std::unordered_map<std::string,Node> um){
+    for(auto i : um){
+        o <<  i.first << " :";
+        for(Edge j : i.second.adj){
+            o << " " << j.dest << ',';
+        }
+        o << std::endl;
     }
     return o;
 }
