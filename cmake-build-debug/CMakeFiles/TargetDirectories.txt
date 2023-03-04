@@ -1,0 +1,3 @@
+/home/feld/CLionProjects/DA_Quimboio/cmake-build-debug/CMakeFiles/DA_Quimboio.dir
+/home/feld/CLionProjects/DA_Quimboio/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/feld/CLionProjects/DA_Quimboio/cmake-build-debug/CMakeFiles/rebuild_cache.dir
