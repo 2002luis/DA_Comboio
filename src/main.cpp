@@ -34,10 +34,14 @@ int main(){
 
     //std::cout << test;
 
-    test.dfs(s1.name,s6.name);
+    //test.dfs(s1.name,s6.name);
 
     test.addBidirectionalEdge(s2,s5,5);
     test.dfs(s1.name,s6.name);
+
+    //std::cout << test;
+
+    test.fordFulkerson(s1.name,s6.name);
 
     std::cout << test;
 }

@@ -107,13 +107,16 @@ void Graph::fordFulkerson(std::string src, std::string dest){
         double flow = INF;
         auto cur = goal;
         while(cur!=start){
-            flow = std::min(flow,cur->getPath()->getWeight()-cur->getPath()->getFlow());
-
-
-
+            flow = std::min(flow,(cur->getPath()->getWeight())-(cur->getPath()->getFlow()));
             cur = cur->getPath()->getDest();
         }
 
+        cur = goal;
+        while(cur!=start){
+            cur->getPath()->setFlow(cur->getPath()->getFlow()-flow);
+            cur->getPath()->getReverse()->setFlow(cur->getPath()->getReverse()->getFlow()+flow);
+            cur = cur->getPath()->getDest();
+        }
 
 
         this->removePaths();
@@ -129,7 +132,7 @@ bool Graph::dfs(std::string src, std::string dest){
 bool Graph::dfs(Vertex* src, Vertex* dest) {
     if(src==dest) return true;
     for(auto &i : src->getAdj()){
-        if(i->getWeight()>i->getFlow() && i->getDest()->getPath()== nullptr)
+        if(i->getWeight()>i->getFlow() && i->getDest()->getPath() == nullptr)
         {
             i->getDest()->setPath(i->getReverse());
             if(this->dfs(i->getDest(),dest)) return true;
