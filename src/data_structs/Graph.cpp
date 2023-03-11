@@ -107,7 +107,7 @@ void Graph::fordFulkerson(std::string src, std::string dest){
         double flow = INF;
         auto cur = goal;
         while(cur!=start){
-
+            flow = std::min(flow,cur->getPath()->getWeight()-cur->getPath()->getFlow());
 
 
 
