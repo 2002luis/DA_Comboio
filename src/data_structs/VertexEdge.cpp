@@ -1,11 +1,10 @@
 // By: Gonçalo Leão
 
 #include "VertexEdge.h"
-#include "Station.h"
 
 /************************* Vertex  **************************/
 
-Vertex::Vertex(int id, Station* s){
+Vertex::Vertex(int id, Station s){
     this->id=id;
     this->s=s;
 }
@@ -15,13 +14,9 @@ Vertex::Vertex(int id, Station* s){
  * with a given destination vertex (d) and edge weight (w).
  */
 Edge * Vertex::addEdge(Vertex *d, double w) {
-    auto newEdge = new Edge(this, d, w), newEdge2 = new Edge(d,this,w);
+    auto newEdge = new Edge(this, d, w);
     adj.push_back(newEdge);
-    incoming.push_back(newEdge2);
     d->incoming.push_back(newEdge);
-    d->adj.push_back(newEdge2);
-
-
     return newEdge;
 }
 
@@ -66,7 +61,7 @@ int Vertex::getId() const {
     return this->id;
 }
 
-std::vector<Edge*> Vertex::getAdj() const {
+std::vector<Edge*> Vertex::getAdj(){
     return this->adj;
 }
 

@@ -12,12 +12,12 @@ Station::Station(std::string name, std::string district, std::string municipalit
     this->line=line;
 }
 
-Station::Station(Station* s){
-    this->name=s->name;
-    this->district=s->district;
-    this->municipality=s->municipality;
-    this->township=s->township;
-    this->line=s->line;
+Station::Station(std::string n){
+    this->name="s"+n;
+    this->district="d"+n;
+    this->municipality="m"+n;
+    this->township="t"+n;
+    this->line="l"+n;
 }
 
 Station::Station(){
