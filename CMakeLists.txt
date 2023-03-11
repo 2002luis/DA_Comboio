@@ -3,4 +3,4 @@ project(DA_Quimboio)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DA_Quimboio src/Graph.cpp src/Graph.h src/Station.cpp src/Station.h src/main.cpp src/overloads.cpp src/overloads.h src/node.h)
+add_executable(DA_Quimboio src/data_structs/VertexEdge.cpp src/data_structs/VertexEdge.h src/data_structs/Station.cpp src/data_structs/Station.h src/main.cpp)

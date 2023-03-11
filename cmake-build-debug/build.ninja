@@ -49,26 +49,20 @@ cmake_ninja_workdir = /home/feld/CLionProjects/DA_Quimboio/cmake-build-debug/
 
 build cmake_object_order_depends_target_DA_Quimboio: phony || CMakeFiles/DA_Quimboio.dir
 
-build CMakeFiles/DA_Quimboio.dir/src/Graph.cpp.o: CXX_COMPILER__DA_Quimboio_Debug /home/feld/CLionProjects/DA_Quimboio/src/Graph.cpp || cmake_object_order_depends_target_DA_Quimboio
-  DEP_FILE = CMakeFiles/DA_Quimboio.dir/src/Graph.cpp.o.d
+build CMakeFiles/DA_Quimboio.dir/src/data_structs/VertexEdge.cpp.o: CXX_COMPILER__DA_Quimboio_Debug /home/feld/CLionProjects/DA_Quimboio/src/data_structs/VertexEdge.cpp || cmake_object_order_depends_target_DA_Quimboio
+  DEP_FILE = CMakeFiles/DA_Quimboio.dir/src/data_structs/VertexEdge.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DA_Quimboio.dir
-  OBJECT_FILE_DIR = CMakeFiles/DA_Quimboio.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/DA_Quimboio.dir/src/data_structs
 
-build CMakeFiles/DA_Quimboio.dir/src/Station.cpp.o: CXX_COMPILER__DA_Quimboio_Debug /home/feld/CLionProjects/DA_Quimboio/src/Station.cpp || cmake_object_order_depends_target_DA_Quimboio
-  DEP_FILE = CMakeFiles/DA_Quimboio.dir/src/Station.cpp.o.d
+build CMakeFiles/DA_Quimboio.dir/src/data_structs/Station.cpp.o: CXX_COMPILER__DA_Quimboio_Debug /home/feld/CLionProjects/DA_Quimboio/src/data_structs/Station.cpp || cmake_object_order_depends_target_DA_Quimboio
+  DEP_FILE = CMakeFiles/DA_Quimboio.dir/src/data_structs/Station.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DA_Quimboio.dir
-  OBJECT_FILE_DIR = CMakeFiles/DA_Quimboio.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/DA_Quimboio.dir/src/data_structs
 
 build CMakeFiles/DA_Quimboio.dir/src/main.cpp.o: CXX_COMPILER__DA_Quimboio_Debug /home/feld/CLionProjects/DA_Quimboio/src/main.cpp || cmake_object_order_depends_target_DA_Quimboio
   DEP_FILE = CMakeFiles/DA_Quimboio.dir/src/main.cpp.o.d
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/DA_Quimboio.dir
-  OBJECT_FILE_DIR = CMakeFiles/DA_Quimboio.dir/src
-
-build CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o: CXX_COMPILER__DA_Quimboio_Debug /home/feld/CLionProjects/DA_Quimboio/src/overloads.cpp || cmake_object_order_depends_target_DA_Quimboio
-  DEP_FILE = CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DA_Quimboio.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_Quimboio.dir/src
@@ -81,7 +75,7 @@ build CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o: CXX_COMPILER__DA_Quimboio_
 #############################################
 # Link the executable DA_Quimboio
 
-build DA_Quimboio: CXX_EXECUTABLE_LINKER__DA_Quimboio_Debug CMakeFiles/DA_Quimboio.dir/src/Graph.cpp.o CMakeFiles/DA_Quimboio.dir/src/Station.cpp.o CMakeFiles/DA_Quimboio.dir/src/main.cpp.o CMakeFiles/DA_Quimboio.dir/src/overloads.cpp.o
+build DA_Quimboio: CXX_EXECUTABLE_LINKER__DA_Quimboio_Debug CMakeFiles/DA_Quimboio.dir/src/data_structs/VertexEdge.cpp.o CMakeFiles/DA_Quimboio.dir/src/data_structs/Station.cpp.o CMakeFiles/DA_Quimboio.dir/src/main.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DA_Quimboio.dir
   POST_BUILD = :
