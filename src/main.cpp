@@ -5,9 +5,8 @@
 #include <iostream>
 #include <string>
 #include <ostream>
-#include "overloads.h"
-#include "Station.h"
-#include "Graph.h"
+#include "data_structs/Station.h"
+#include "data_structs/Graph.h"
 
 int main(){
     Station s1("s1","d1","m1","t1","l1"), s2("s2","d2","m2","t2","l2");
