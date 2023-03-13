@@ -43,5 +43,5 @@ int main(){
 
     test.fordFulkerson(s1.name,s6.name);
 
-    std::cout << test;
+    std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
 }

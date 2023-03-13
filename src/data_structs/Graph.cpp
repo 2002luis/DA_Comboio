@@ -100,7 +100,7 @@ Graph::~Graph() {
 }
 
 void Graph::fordFulkerson(std::string src, std::string dest){
-    for(auto &i : this->vertexSet) for(auto &j : i->getAdj()) j->setFlow(0);
+    this->removeFlow();
     Vertex *start = this->findVertex(src), *goal = this->findVertex(dest);
     this->removePaths();
     while(this->dfs(start,goal)) {
@@ -143,4 +143,15 @@ bool Graph::dfs(Vertex* src, Vertex* dest) {
 
 void Graph::removePaths() {
     for(auto &i : this->vertexSet) i->setPath(nullptr);
+}
+
+void Graph::removeFlow(){
+    for(auto &i : this->vertexSet) for(auto &j : i->getAdj()) j->setFlow(0.0);
+}
+
+double Graph::maxInPath(std::string src, std::string dest){
+    this->fordFulkerson(src,dest);
+    double out = 0.0;
+    for(auto &i : this->findVertex(dest)->getIncoming()) if(i->getFlow()>0) out+=i->getFlow();
+    return out;
 }

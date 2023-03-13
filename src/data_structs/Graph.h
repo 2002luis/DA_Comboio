@@ -44,7 +44,11 @@ public:
     void fordFulkerson(std::string src, std::string dest); //A funcao q importa
     bool dfs(Vertex* src, Vertex* dest);
     bool dfs(std::string src, std::string dest);
+
     void removePaths();
+    void removeFlow();
+
+    double maxInPath(std::string src, std::string dest); //4.1 T2.1 3.5 valores <3
 
     std::unordered_map<std::string, int> stList;
 protected:
