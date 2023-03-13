@@ -42,6 +42,7 @@ public:
 
 
     void fordFulkerson(std::string src, std::string dest); //A funcao q importa
+    void fordFulkerson(Vertex* src, Vertex* dest);
     bool dfs(Vertex* src, Vertex* dest);
     bool dfs(std::string src, std::string dest);
 
@@ -49,6 +50,9 @@ public:
     void removeFlow();
 
     double maxInPath(std::string src, std::string dest); //4.1 T2.1 3.5 valores <3
+    double maxInPath(Vertex* src, Vertex* dest);
+
+    std::vector<std::pair<Vertex*,Vertex*>> maxPairs(); //4.2 T2.2 2 valores
 
     std::unordered_map<std::string, int> stList;
 protected:

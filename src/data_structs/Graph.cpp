@@ -100,19 +100,23 @@ Graph::~Graph() {
 }
 
 void Graph::fordFulkerson(std::string src, std::string dest){
+    this->fordFulkerson(this->findVertex(src),this->findVertex(dest));
+}
+
+void Graph::fordFulkerson(Vertex* src, Vertex* dest){
     this->removeFlow();
-    Vertex *start = this->findVertex(src), *goal = this->findVertex(dest);
+
     this->removePaths();
-    while(this->dfs(start,goal)) {
+    while(this->dfs(src,dest)) {
         double flow = INF;
-        auto cur = goal;
-        while(cur!=start){
+        auto cur = dest;
+        while(cur!=src){
             flow = std::min(flow,(cur->getPath()->getWeight())-abs(cur->getPath()->getFlow()));
             cur = cur->getPath()->getDest();
         }
 
-        cur = goal;
-        while(cur!=start){
+        cur = dest;
+        while(cur!=src){
             cur->getPath()->setFlow(cur->getPath()->getFlow()-flow);
             cur->getPath()->getReverse()->setFlow(cur->getPath()->getReverse()->getFlow()+flow);
             cur = cur->getPath()->getDest();
@@ -121,7 +125,6 @@ void Graph::fordFulkerson(std::string src, std::string dest){
 
         this->removePaths();
     }
-
 }
 
 bool Graph::dfs(std::string src, std::string dest){
@@ -150,8 +153,33 @@ void Graph::removeFlow(){
 }
 
 double Graph::maxInPath(std::string src, std::string dest){
+    this->maxInPath(this->findVertex(src),this->findVertex(dest));
+}
+
+double Graph::maxInPath(Vertex *src, Vertex *dest) {
     this->fordFulkerson(src,dest);
     double out = 0.0;
-    for(auto &i : this->findVertex(dest)->getIncoming()) if(i->getFlow()>0) out+=i->getFlow();
+    for(auto &i : dest->getIncoming()) if(i->getFlow()>0) out+=i->getFlow();
+    return out;
+}
+
+std::vector<std::pair<Vertex*,Vertex*>> Graph::maxPairs(){
+    double n = 0;
+    std::vector<std::pair<Vertex*,Vertex*>> out;
+
+    for(unsigned long int i = 0; i < this->vertexSet.size(); i++) for(int j = i+1; j < this->vertexSet.size(); j++){
+        if(i!=j){
+            double cur = this->maxInPath(this->vertexSet[i],this->vertexSet[j]);
+            if(cur > n){
+                n = cur;
+                out.clear();
+                out.push_back({this->vertexSet[i],this->vertexSet[j]});
+            }
+            else if(cur == n){
+                out.push_back({this->vertexSet[i],this->vertexSet[j]});
+            }
+        }
+    }
+
     return out;
 }
