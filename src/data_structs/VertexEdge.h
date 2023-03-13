@@ -8,7 +8,6 @@
 #include <queue>
 #include <limits>
 #include <algorithm>
-#include "../../../DAEpico/data_structures/MutablePriorityQueue.h"
 #include "Station.h"
 
 class Edge;
@@ -23,7 +22,7 @@ public:
     bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
 
     int getId() const;
-    std::vector<Edge *> getAdj() const;
+    std::vector<Edge *> getAdj();
     bool isVisited() const;
     bool isProcessing() const;
     unsigned int getIndegree() const;
@@ -41,7 +40,6 @@ public:
     Edge * addEdge(Vertex *dest, double w);
     bool removeEdge(int destID);
 
-    friend class MutablePriorityQueue<Vertex>;
 protected:
 
     int id;                // identifier

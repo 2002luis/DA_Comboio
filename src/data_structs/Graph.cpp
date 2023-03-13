@@ -20,6 +20,12 @@ Vertex * Graph::findVertex(const int &id) const {
     return nullptr;
 }
 
+
+Vertex* Graph::findVertex(const std::string name) const{
+    if(this->stList.find(name)==this->stList.end()) return nullptr;
+    return this->findVertex(this->stList.find(name)->second);
+}
+
 /*
  * Finds the index of the vertex with a given content.
  */
@@ -33,10 +39,10 @@ int Graph::findVertexIdx(const int &id) const {
  *  Adds a vertex with a given content or info (in) to a graph (this).
  *  Returns true if successful, and false if a vertex with that content already exists.
  */
-bool Graph::addVertex(const int &id) {
-    if (findVertex(id) != nullptr)
-        return false;
-    vertexSet.push_back(new Vertex(id));
+bool Graph::addVertex(Station s) {
+    int id = this->vertexSet.size();
+    vertexSet.push_back(new Vertex(id, s));
+    stList.insert({s.name,id});
     return true;
 }
 
@@ -45,7 +51,7 @@ bool Graph::addVertex(const int &id) {
  * destination vertices and the edge weight (w).
  * Returns true if successful, and false if the source or destination vertex does not exist.
  */
-bool Graph::addEdge(const int &sourc, const int &dest, double w) {
+bool Graph::addEdge(const std::string &sourc, const std::string &dest, double w) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
@@ -54,7 +60,7 @@ bool Graph::addEdge(const int &sourc, const int &dest, double w) {
     return true;
 }
 
-bool Graph::addBidirectionalEdge(const int &sourc, const int &dest, double w) {
+bool Graph::addBidirectionalEdge(const std::string &sourc, const std::string &dest, double w) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
@@ -64,6 +70,10 @@ bool Graph::addBidirectionalEdge(const int &sourc, const int &dest, double w) {
     e1->setReverse(e2);
     e2->setReverse(e1);
     return true;
+}
+
+bool Graph::addBidirectionalEdge(Station s1, Station s2, double w) {
+    return this->addBidirectionalEdge(s1.name,s2.name,w);
 }
 
 void deleteMatrix(int **m, int n) {
@@ -89,8 +99,48 @@ Graph::~Graph() {
     deleteMatrix(pathMatrix, vertexSet.size());
 }
 
-void fordFulkerson(int src, int dest){
+void Graph::fordFulkerson(std::string src, std::string dest){
+    for(auto &i : this->vertexSet) for(auto &j : i->getAdj()) j->setFlow(0);
+    Vertex *start = this->findVertex(src), *goal = this->findVertex(dest);
+    this->removePaths();
+    while(this->dfs(start,goal)) {
+        double flow = INF;
+        auto cur = goal;
+        while(cur!=start){
+            flow = std::min(flow,(cur->getPath()->getWeight())-abs(cur->getPath()->getFlow()));
+            cur = cur->getPath()->getDest();
+        }
+
+        cur = goal;
+        while(cur!=start){
+            cur->getPath()->setFlow(cur->getPath()->getFlow()-flow);
+            cur->getPath()->getReverse()->setFlow(cur->getPath()->getReverse()->getFlow()+flow);
+            cur = cur->getPath()->getDest();
+        }
 
 
+        this->removePaths();
+    }
 
+}
+
+bool Graph::dfs(std::string src, std::string dest){
+    Vertex *start = this->findVertex(src), *goal = this->findVertex(dest);
+    return this->dfs(start,goal);
+}
+
+bool Graph::dfs(Vertex* src, Vertex* dest) {
+    if(src==dest) return true;
+    for(auto &i : src->getAdj()){
+        if(i->getWeight()>abs(i->getFlow()) && i->getDest()->getPath() == nullptr)
+        {
+            i->getDest()->setPath(i->getReverse());
+            if(this->dfs(i->getDest(),dest)) return true;
+        }
+    }
+    return false;
+}
+
+void Graph::removePaths() {
+    for(auto &i : this->vertexSet) i->setPath(nullptr);
 }

@@ -11,6 +11,8 @@ class Station {
 public:
     std::string name, district, municipality, township, line;
     Station(std::string name, std::string district, std::string municipality, std::string township, std::string line);
+    Station(std::string n); //construtor da preguiça
+    Station();
 };
 
 

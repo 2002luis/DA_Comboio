@@ -7,25 +7,41 @@
 #include <ostream>
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
+#include "overloads.h"
 
 int main(){
-    Station s1("s1","d1","m1","t1","l1"), s2("s2","d2","m2","t2","l2");
-    Station s3("s3","d3","m3","t3","l3"), s4("s4","d4","m4","t4","l4");
-    Station s5("s5","d5","m5","t5","l5");
+    Station s1("1"), s2("2");
+    Station s3("3"), s4("4");
+    Station s5("5"), s6("6");
     Graph test;
-    test.addStation(s1);
-    test.addStation(s2);
-    test.addStation(s3);
-    test.addStation(s4);
-    test.addStation(s5);
-    test.addTransport("s1","s2",10,"t1");
-    test.addTransport("s2","s5",10,"t1");
-    test.addTransport("s1","s3",100,"t2");
-    test.addTransport("s3","s5",5,"t2");
-    test.addTransport("s3","s4",200,"t2");
-    test.addTransport("s4","s5",200,"t2");
+    test.addVertex(s1);
+    test.addVertex(s2);
+    test.addVertex(s3);
+    test.addVertex(s4);
+    test.addVertex(s5);
+    test.addVertex(s6);
 
-    //std::cout << test.getPaths("s1","s2");
-    std::cout << test.getNodes();
+    //std::cout << test;
 
+    std::cout << "\n\n\n\n\n";
+
+    test.addBidirectionalEdge(s1,s2,5);
+    test.addBidirectionalEdge(s2,s3,3);
+    test.addBidirectionalEdge(s1,s4,3);
+    test.addBidirectionalEdge(s4,s5,3);
+    test.addBidirectionalEdge(s5,s6,5);
+    test.addBidirectionalEdge(s3,s6,3);
+
+    //std::cout << test;
+
+    //test.dfs(s1.name,s6.name);
+
+    test.addBidirectionalEdge(s2,s5,5);
+    test.dfs(s1.name,s6.name);
+
+    //std::cout << test;
+
+    test.fordFulkerson(s1.name,s6.name);
+
+    std::cout << test;
 }

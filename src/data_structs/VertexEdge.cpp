@@ -61,7 +61,7 @@ int Vertex::getId() const {
     return this->id;
 }
 
-std::vector<Edge*> Vertex::getAdj() const {
+std::vector<Edge*> Vertex::getAdj(){
     return this->adj;
 }
 
