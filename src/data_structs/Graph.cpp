@@ -51,29 +51,29 @@ bool Graph::addVertex(Station s) {
  * destination vertices and the edge weight (w).
  * Returns true if successful, and false if the source or destination vertex does not exist.
  */
-bool Graph::addEdge(const std::string &sourc, const std::string &dest, double w) {
+bool Graph::addEdge(const std::string &sourc, const std::string &dest, double w, std::string type) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
         return false;
-    v1->addEdge(v2, w);
+    v1->addEdge(v2, w, type);
     return true;
 }
 
-bool Graph::addBidirectionalEdge(const std::string &sourc, const std::string &dest, double w) {
+bool Graph::addBidirectionalEdge(const std::string &sourc, const std::string &dest, double w, std::string type) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
         return false;
-    auto e1 = v1->addEdge(v2, w);
-    auto e2 = v2->addEdge(v1, w);
+    auto e1 = v1->addEdge(v2, w, type);
+    auto e2 = v2->addEdge(v1, w, type);
     e1->setReverse(e2);
     e2->setReverse(e1);
     return true;
 }
 
-bool Graph::addBidirectionalEdge(Station s1, Station s2, double w) {
-    return this->addBidirectionalEdge(s1.name,s2.name,w);
+bool Graph::addBidirectionalEdge(Station s1, Station s2, double w, std::string type) {
+    return this->addBidirectionalEdge(s1.name,s2.name,w, type);
 }
 
 void deleteMatrix(int **m, int n) {
