@@ -1,6 +1,9 @@
 // By: Gonçalo Leão
 
 #include "Graph.h"
+#include <queue>
+#include <unordered_map>
+
 
 int Graph::getNumVertex() const {
     return vertexSet.size();
@@ -22,8 +25,8 @@ Vertex * Graph::findVertex(const int &id) const {
 
 
 Vertex* Graph::findVertex(const std::string name) const{
-    if(this->stList.find(name)==this->stList.end()) return nullptr;
-    return this->findVertex(this->stList.find(name)->second);
+    if(stList.find(name)==stList.end()) return nullptr;
+    return this->findVertex(stList.find(name)->second);
 }
 
 /*
@@ -105,8 +108,8 @@ void Graph::fordFulkerson(std::string src, std::string dest){
 
 void Graph::fordFulkerson(Vertex* src, Vertex* dest){
     this->removeFlow();
-
     this->removePaths();
+
     while(this->dfs(src,dest)) {
         double flow = INF;
         auto cur = dest;
@@ -152,8 +155,12 @@ void Graph::removeFlow(){
     for(auto &i : this->vertexSet) for(auto &j : i->getAdj()) j->setFlow(0.0);
 }
 
+void Graph::removeVisited(){
+    for(auto &i : this->vertexSet) i->setVisited(false);
+}
+
 double Graph::maxInPath(std::string src, std::string dest){
-    this->maxInPath(this->findVertex(src),this->findVertex(dest));
+    return this->maxInPath(this->findVertex(src),this->findVertex(dest));
 }
 
 double Graph::maxInPath(Vertex *src, Vertex *dest) {
@@ -181,5 +188,41 @@ std::vector<std::pair<Vertex*,Vertex*>> Graph::maxPairs(){
         }
     }
 
+    return out;
+}
+
+double Graph::anyDfs(Vertex* src){
+    double out = INT_MAX;
+    for(auto &e : src->getAdj()){
+        if(e->getFlow()<e->getWeight()){
+            if((e->getWeight()-e->getFlow())<out) out = e->getWeight()-e->getFlow();
+            src->setPath(e);
+            return this->anyDfs(e->getDest());
+        }
+    }
+    return out;
+}
+
+double Graph::anyDfs(std::string src){
+    return this->anyDfs(this->findVertex(src));
+}
+
+
+
+double Graph::maxArriveInStation(std::string dest) {
+    return this->maxArriveInStation(this->findVertex(dest));
+}
+
+double Graph::maxArriveInStation(Vertex* dest){
+    double out = 0, temp = this->anyDfs(dest);
+    this->removePaths();
+    this->removeFlow();
+    while(temp != INT_MAX){
+        out += temp;
+        for(auto cur = dest; cur->getPath() != nullptr; cur = cur->getPath()->getDest()){
+            cur->getPath()->setFlow(cur->getPath()->getFlow()+temp);
+        }
+        temp = this->anyDfs(dest);
+    }
     return out;
 }

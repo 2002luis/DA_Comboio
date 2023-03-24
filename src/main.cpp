@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <ostream>
+#include <unordered_map>
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
 #include "fileReader.h"
@@ -48,15 +49,15 @@ int main(){
 
     //test.fordFulkerson(s1.name,s6.name);
 
-    //std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
-
-    std::cout << test.maxPairs();
-
-
     std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
 
-    fileReader fR("TestData");
+    //std::cout << test.maxPairs();
 
-    std::cout << std::endl << std::endl << fR.g << std::endl;
+
+    //std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
+
+    //fileReader fR("TestData");
+
+    //std::cout << std::endl << std::endl << fR.g << std::endl;
 
 }

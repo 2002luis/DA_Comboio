@@ -46,13 +46,20 @@ public:
     bool dfs(Vertex* src, Vertex* dest);
     bool dfs(std::string src, std::string dest);
 
+    double anyDfs(Vertex* src);  //funcao a ser chamada em loop para descobrir um caminho qualquer
+    double anyDfs(std::string src);
+
     void removePaths();
     void removeFlow();
+    void removeVisited();
 
-    double maxInPath(std::string src, std::string dest); //4.1 T2.1 3.5 valores <3
+    double maxInPath(std::string src, std::string dest); //4.1 T2.1 3.5 valores
     double maxInPath(Vertex* src, Vertex* dest);
 
     std::vector<std::pair<Vertex*,Vertex*>> maxPairs(); //4.2 T2.2 2 valores
+
+    double maxArriveInStation(std::string dest); //4.4 1 valor
+    double maxArriveInStation(Vertex* dest);
 
     std::unordered_map<std::string, int> stList;
 protected:
