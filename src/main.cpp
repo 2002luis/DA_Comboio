@@ -26,6 +26,7 @@ int main(){
 
     std::cout << "\n\n\n\n\n";
 
+
     test.addBidirectionalEdge(s1,s2,5,"");
     test.addBidirectionalEdge(s2,s3,3,"");
     test.addBidirectionalEdge(s1,s4,3,"");
@@ -33,20 +34,29 @@ int main(){
     test.addBidirectionalEdge(s5,s6,5,"");
     test.addBidirectionalEdge(s3,s6,3,"");
 
+
     //std::cout << test;
 
     //test.dfs(s1.name,s6.name);
 
+
     test.addBidirectionalEdge(s2,s5,5,"");
+
     //test.dfs(s1.name,s6.name);
 
     //std::cout << test;
 
     //test.fordFulkerson(s1.name,s6.name);
 
+    //std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
+
+    std::cout << test.maxPairs();
+
+
     std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
 
     fileReader fR("TestData");
 
     std::cout << std::endl << std::endl << fR.g << std::endl;
+
 }
