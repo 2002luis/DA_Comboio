@@ -25,8 +25,8 @@ Vertex * Graph::findVertex(const int &id) const {
 
 
 Vertex* Graph::findVertex(const std::string name) const{
-    if(stList.find(name)==stList.end()) return nullptr;
-    return this->findVertex(stList.find(name)->second);
+    if(this->stList.find(name)==this->stList.end()) return nullptr;
+    return this->findVertex(this->stList.find(name)->second);
 }
 
 /*
@@ -45,7 +45,7 @@ int Graph::findVertexIdx(const int &id) const {
 bool Graph::addVertex(Station s) {
     int id = this->vertexSet.size();
     vertexSet.push_back(new Vertex(id, s));
-    stList.insert({s.name,id});
+    this->stList.insert({s.name,id});
     return true;
 }
 
