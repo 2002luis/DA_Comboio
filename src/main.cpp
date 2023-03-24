@@ -49,7 +49,7 @@ int main(){
 
     //test.fordFulkerson(s1.name,s6.name);
 
-    std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
+    //std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
 
     //std::cout << test.maxPairs();
 
@@ -60,4 +60,5 @@ int main(){
 
     //std::cout << std::endl << std::endl << fR.g << std::endl;
 
+    std::cout << test.maxArriveInStation(s6.name) << std::endl << test;
 }

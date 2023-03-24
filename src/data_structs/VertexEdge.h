@@ -31,6 +31,7 @@ public:
     std::vector<Edge *> getIncoming() const;
     Station s;
 
+
     void setId(int info);
     void setVisited(bool visited);
     void setProcesssing(bool processing);
@@ -69,6 +70,7 @@ public:
     Vertex * getOrig() const;
     Edge *getReverse() const;
     double getFlow() const;
+    std::string getType() const;
 
     void setSelected(bool selected);
     void setReverse(Edge *reverse);

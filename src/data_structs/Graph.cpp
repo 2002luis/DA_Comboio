@@ -4,6 +4,18 @@
 #include <queue>
 #include <unordered_map>
 
+Graph::Graph(){
+
+}
+
+Graph::Graph(Graph* copy){
+    for(auto v : copy->vertexSet){
+        this->addVertex(v->s);
+    }
+    for(auto v: copy->vertexSet) for(auto e: v->getAdj()){
+        this->addBidirectionalEdge(e->getOrig()->s.name,e->getDest()->s.name,e->getWeight(),e->getType());
+    }
+}
 
 int Graph::getNumVertex() const {
     return vertexSet.size();
@@ -102,12 +114,12 @@ Graph::~Graph() {
     deleteMatrix(pathMatrix, vertexSet.size());
 }
 
-void Graph::fordFulkerson(std::string src, std::string dest){
-    this->fordFulkerson(this->findVertex(src),this->findVertex(dest));
+void Graph::fordFulkerson(std::string src, std::string dest, bool clear = true){
+    this->fordFulkerson(this->findVertex(src),this->findVertex(dest),clear);
 }
 
-void Graph::fordFulkerson(Vertex* src, Vertex* dest){
-    this->removeFlow();
+void Graph::fordFulkerson(Vertex* src, Vertex* dest, bool clear = true){
+    if(clear) this->removeFlow();
     this->removePaths();
 
     while(this->dfs(src,dest)) {
@@ -159,12 +171,12 @@ void Graph::removeVisited(){
     for(auto &i : this->vertexSet) i->setVisited(false);
 }
 
-double Graph::maxInPath(std::string src, std::string dest){
-    return this->maxInPath(this->findVertex(src),this->findVertex(dest));
+double Graph::maxInPath(std::string src, std::string dest, bool clear = true){
+    return this->maxInPath(this->findVertex(src),this->findVertex(dest), clear);
 }
 
-double Graph::maxInPath(Vertex *src, Vertex *dest) {
-    this->fordFulkerson(src,dest);
+double Graph::maxInPath(Vertex *src, Vertex *dest, bool clear = true) {
+    this->fordFulkerson(src,dest,clear);
     double out = 0.0;
     for(auto &i : dest->getIncoming()) if(i->getFlow()>0) out+=i->getFlow();
     return out;
@@ -191,38 +203,43 @@ std::vector<std::pair<Vertex*,Vertex*>> Graph::maxPairs(){
     return out;
 }
 
-double Graph::anyDfs(Vertex* src){
-    double out = INT_MAX;
-    for(auto &e : src->getAdj()){
-        if(e->getFlow()<e->getWeight()){
-            if((e->getWeight()-e->getFlow())<out) out = e->getWeight()-e->getFlow();
-            src->setPath(e);
-            return this->anyDfs(e->getDest());
-        }
-    }
-    return out;
-}
-
-double Graph::anyDfs(std::string src){
-    return this->anyDfs(this->findVertex(src));
-}
-
-
-
 double Graph::maxArriveInStation(std::string dest) {
     return this->maxArriveInStation(this->findVertex(dest));
 }
 
 double Graph::maxArriveInStation(Vertex* dest){
-    double out = 0, temp = this->anyDfs(dest);
+
     this->removePaths();
     this->removeFlow();
-    while(temp != INT_MAX){
-        out += temp;
-        for(auto cur = dest; cur->getPath() != nullptr; cur = cur->getPath()->getDest()){
-            cur->getPath()->setFlow(cur->getPath()->getFlow()+temp);
+    this->removeVisited();
+    Graph temp = this;
+
+    std::vector<Vertex*> lst;
+    std::queue<Vertex*> q;
+    temp.findVertex(dest->s.name)->setVisited(true);
+    q.push(temp.findVertex(dest->s.name));
+    while(!q.empty()){
+        Vertex* cur = q.front();
+        q.pop();
+        bool noAdj = true;
+        for(auto &e : cur->getAdj()){
+
+            if(!e->getDest()->isVisited()){
+                noAdj = false;
+                e->getDest()->setVisited(true);
+                q.push(e->getDest());
+            }
         }
-        temp = this->anyDfs(dest);
+        if(noAdj){
+            lst.push_back(cur);
+        }
     }
-    return out;
+
+    Station tmpEnd("TMPSTATION","TMP","TMP","TMP","TMP");
+    temp.addVertex(tmpEnd);
+    for(auto i : lst){
+        temp.addBidirectionalEdge(i->s.name, "TMPSTATION", INF, "TMP");
+    }
+
+    return temp.maxInPath(dest->s.name,"TMPSTATION",false);
 }
