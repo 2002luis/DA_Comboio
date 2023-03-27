@@ -9,6 +9,10 @@ Vertex::Vertex(int id, Station s){
     this->s=s;
 }
 
+std::string Edge::getType() const{
+    return this->type;
+}
+
 /*
  * Auxiliary function to add an outgoing edge to a vertex (this),
  * with a given destination vertex (d) and edge weight (w).

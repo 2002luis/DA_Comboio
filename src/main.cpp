@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <ostream>
+#include <unordered_map>
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
 #include "fileReader.h"
@@ -50,13 +51,20 @@ int main(){
 
     //std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
 
-    std::cout << test.maxPairs();
+    //std::cout << test.maxPairs();
 
 
-    std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
+    //std::cout << test << std::endl << std::endl << test.maxInPath(s1.name,s6.name);
 
-    fileReader fR("TestData");
+    //fileReader fR("TestData");
 
-    std::cout << std::endl << std::endl << fR.g << std::endl;
+    //std::cout << std::endl << std::endl << fR.g << std::endl;
 
+    //std::cout << test.maxArriveInStation(s6.name) << std::endl << test;
+
+    test.removeFlow();
+
+    test.removeVertex(s2.name);
+
+    std::cout << test;
 }

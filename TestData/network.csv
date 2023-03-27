@@ -1,2 +1,4 @@
 Station_A,Station_B,Capacity,Service
 Lourosa,Espinho,1,STANDARD
+Aveiro,Espinho,2,STANDARD
+Lourosa,Aveiro,300,STANDARD
