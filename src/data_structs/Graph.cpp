@@ -243,3 +243,34 @@ double Graph::maxArriveInStation(Vertex* dest){
 
     return temp.maxInPath(dest->s.name,"TMPSTATION",false);
 }
+
+void Graph::removeEdge(std::string a, std::string b) {
+    this->removeEdge(this->findVertex(a),this->findVertex(b));
+}
+
+void Graph::removeEdge(Vertex *a, Vertex *b) {
+    a->removeEdge(b->getId());
+    b->removeEdge(a->getId());
+}
+
+void Graph::removeEdge(Edge *e) {
+    this->removeEdge(e->getOrig(),e->getDest());
+}
+
+void Graph::removeVertex(Vertex *a) {
+    for(auto e : a->getAdj()) this->removeEdge(e);
+    for(unsigned long int i = 0; i < this->vertexSet.size(); i++){
+        if(this->vertexSet[i] == a){
+            this->vertexSet.erase(this->vertexSet.begin()+i,this->vertexSet.begin()+i+1);
+            i = this->vertexSet.size();
+        }
+    }
+}
+
+void Graph::removeVertex(std::string n) {
+    this->removeVertex(this->findVertex(n));
+}
+
+void Graph::removeVertex(int n) {
+    this->removeVertex(this->findVertex(n));
+}

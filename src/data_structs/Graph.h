@@ -62,6 +62,14 @@ public:
     double maxArriveInStation(Vertex* dest);
 
     std::unordered_map<std::string, int> stList;
+
+    void removeEdge(std::string a, std::string b);
+    void removeEdge(Vertex* a, Vertex* b);
+    void removeEdge(Edge* e);
+
+    void removeVertex(Vertex* a);
+    void removeVertex(std::string n);
+    void removeVertex(int n);
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
 

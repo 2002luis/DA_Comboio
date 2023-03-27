@@ -60,5 +60,11 @@ int main(){
 
     //std::cout << std::endl << std::endl << fR.g << std::endl;
 
-    std::cout << test.maxArriveInStation(s6.name) << std::endl << test;
+    //std::cout << test.maxArriveInStation(s6.name) << std::endl << test;
+
+    test.removeFlow();
+
+    test.removeVertex(s2.name);
+
+    std::cout << test;
 }
