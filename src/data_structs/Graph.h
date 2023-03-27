@@ -15,6 +15,8 @@
 class Graph {
 public:
     ~Graph();
+    Graph();
+    Graph(Graph* copy);
     /*
     * Auxiliary function to find a vertex with a given ID.
     */
@@ -41,18 +43,23 @@ public:
 
 
 
-    void fordFulkerson(std::string src, std::string dest); //A funcao q importa
-    void fordFulkerson(Vertex* src, Vertex* dest);
+    void fordFulkerson(std::string src, std::string dest, bool clear); //A funcao q importa
+    void fordFulkerson(Vertex* src, Vertex* dest, bool clear);
     bool dfs(Vertex* src, Vertex* dest);
     bool dfs(std::string src, std::string dest);
 
+
     void removePaths();
     void removeFlow();
+    void removeVisited();
 
-    double maxInPath(std::string src, std::string dest); //4.1 T2.1 3.5 valores <3
-    double maxInPath(Vertex* src, Vertex* dest);
+    double maxInPath(std::string src, std::string dest, bool clear); //4.1 T2.1 3.5 valores
+    double maxInPath(Vertex* src, Vertex* dest, bool clear);
 
     std::vector<std::pair<Vertex*,Vertex*>> maxPairs(); //4.2 T2.2 2 valores
+
+    double maxArriveInStation(std::string dest); //4.4 1 valor
+    double maxArriveInStation(Vertex* dest);
 
     std::unordered_map<std::string, int> stList;
 protected:
