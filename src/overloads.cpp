@@ -41,3 +41,13 @@ std::ostream& operator<<(std::ostream& o, Graph g){
     o << g.getVertexSet();
     return o;
 }
+
+std::ostream& operator<<(std::ostream& o, std::pair<Vertex*,Vertex*> vp){
+    o << vp.first->s.name << " -> " << vp.second->s.name;
+    return o;
+}
+
+std::ostream& operator<<(std::ostream& o, std::vector<std::pair<Vertex*,Vertex*>> v){
+    for(auto i : v) o << i << "    ";
+    return o;
+}
