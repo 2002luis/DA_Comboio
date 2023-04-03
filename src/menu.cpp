@@ -125,7 +125,7 @@ menu::menu() {
 
 
         //program with login
-        if (topicLogin == 1) {
+        /*if (topicLogin == 1) {
             std::cout << "\nStation name:\n"
                          "> ";
             std::string stationName;
@@ -142,10 +142,10 @@ menu::menu() {
 
             std::cout << "\n" << station.name;
             mainMenu();
-        }
+        }*/
 
         //program with guest
-        else if (topicLogin == 2) mainMenu();
+        /*else*/ if (topicLogin == 2) mainMenu();
 
         //quit the program
         else if (topicLogin == 0) exit(0);
