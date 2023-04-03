@@ -51,8 +51,12 @@ public:
     double maxInPath(std::string src, std::string dest); //4.1 T2.1 3.5 valores <3
 
     std::unordered_map<std::string, int> stList;
+
+    void sortTopList();
+    std::vector<std::pair<std::string,double>> topDistSorted, topMunSorted, topDistOnlySameSorted, topMunOnlySameSorted;
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
+    std::unordered_map<std::string, double> topDist, topMun, topDistOnlySame, topMunOnlySame;
 
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
     int **pathMatrix = nullptr;   // path matrix for Floyd-Warshall

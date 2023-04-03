@@ -43,6 +43,10 @@ bool Graph::addVertex(Station s) {
     int id = this->vertexSet.size();
     vertexSet.push_back(new Vertex(id, s));
     stList.insert({s.name,id});
+    if(this->topDist.find(s.district)==this->topDist.end()) topDist.insert({s.district,0});
+    if(this->topMun.find(s.municipality)==this->topMun.end()) topMun.insert({s.municipality,0});
+    if(this->topDistOnlySame.find(s.district)==this->topDistOnlySame.end()) topDistOnlySame.insert({s.district,0});
+    if(this->topMunOnlySame.find(s.municipality)==this->topMunOnlySame.end()) topMunOnlySame.insert({s.municipality,0});
     return true;
 }
 
@@ -57,6 +61,10 @@ bool Graph::addEdge(const std::string &sourc, const std::string &dest, double w,
     if (v1 == nullptr || v2 == nullptr)
         return false;
     v1->addEdge(v2, w, type);
+    topDist.find(v1->s.district)->second+=w;
+    topMun.find(v1->s.municipality)->second+=w;
+    if(v1->s.district == v2->s.district) topDistOnlySame.find(v1->s.district)->second+=w;
+    if(v1->s.municipality == v2->s.municipality) topMunOnlySame.find(v1->s.municipality)->second+=w;
     return true;
 }
 
@@ -154,4 +162,24 @@ double Graph::maxInPath(std::string src, std::string dest){
     double out = 0.0;
     for(auto &i : this->findVertex(dest)->getIncoming()) if(i->getFlow()>0) out+=i->getFlow();
     return out;
+}
+
+bool sortBy2nd(std::pair<std::string,double> p1, std::pair<std::string,int> p2){
+    return p1.second>p2.second; //biggest goes first
+}
+
+void Graph::sortTopList() {
+    topDistSorted.clear();
+    topDistOnlySameSorted.clear();
+    topMunSorted.clear();
+    topMunOnlySameSorted.clear();
+    for(auto p : topDist) topDistSorted.push_back(p);
+    for(auto p : topMun) topMunSorted.push_back(p);
+    for(auto p : topDistOnlySame) topDistOnlySameSorted.push_back(p);
+    for(auto p : topMunOnlySameSorted) topMunOnlySameSorted.push_back(p);
+
+    std::sort(topDistSorted.begin(),topDistSorted.end(), sortBy2nd);
+    std::sort(topMunSorted.begin(),topMunSorted.end(), sortBy2nd);
+    std::sort(topDistOnlySameSorted.begin(),topDistOnlySameSorted.end(), sortBy2nd);
+    std::sort(topMunOnlySameSorted.begin(),topMunOnlySameSorted.end(), sortBy2nd);
 }

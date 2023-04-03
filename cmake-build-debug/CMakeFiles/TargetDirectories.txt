@@ -1,3 +1,0 @@
-C:/Users/luism/OneDrive/Ambiente de Trabalho/Projeto/DAQuimboio/cmake-build-debug/CMakeFiles/DA_Quimboio.dir
-C:/Users/luism/OneDrive/Ambiente de Trabalho/Projeto/DAQuimboio/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/luism/OneDrive/Ambiente de Trabalho/Projeto/DAQuimboio/cmake-build-debug/CMakeFiles/rebuild_cache.dir
