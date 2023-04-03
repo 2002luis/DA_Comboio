@@ -104,7 +104,7 @@ menu::menu() {
 
     std::cout << "\nChoose one topic:\n"
                  "[1] Station login.\n"
-                 "[2] Guess.\n"
+                 "[2] Guest.\n"
 
                  "\n[0] Quit.\n"
                  "> ";
@@ -140,10 +140,11 @@ menu::menu() {
             }
             userStation = station;
 
+            std::cout << "\n" << station.name;
             mainMenu();
         }
 
-        //program with guess
+        //program with guest
         else if (topicLogin == 2) mainMenu();
 
         //quit the program

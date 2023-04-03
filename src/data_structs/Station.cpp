@@ -27,3 +27,8 @@ Station::Station(){
     this->township="";
     this->line="";
 }
+
+Station Station::get_station(std::string &name) {
+
+    return Station();
+}
