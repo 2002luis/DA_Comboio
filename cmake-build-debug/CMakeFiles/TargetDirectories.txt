@@ -1,3 +1,0 @@
-C:/Users/up202005832/Desktop/DAQuimboio/cmake-build-debug/CMakeFiles/DA_Quimboio.dir
-C:/Users/up202005832/Desktop/DAQuimboio/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/up202005832/Desktop/DAQuimboio/cmake-build-debug/CMakeFiles/rebuild_cache.dir
