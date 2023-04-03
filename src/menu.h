@@ -19,7 +19,7 @@ public:
     menu();
     void mainMenu();
     void back();
-    void error(const std::string &s);
+    static void error(const std::string &s);
 };
 
 

@@ -6,6 +6,7 @@
 #include <string>
 #include <ostream>
 #include <unordered_map>
+#include <wsman.h>
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
 #include "fileReader.h"
@@ -13,7 +14,18 @@
 #include "menu.h"
 
 int main(){
-    menu();
+    try {
+        menu();
+    }
+    catch (std::ios_base::failure &fail) {
+        menu::error(fail.what());
+        return 1;
+    }
+    catch (std::exception &ex) {
+        menu::error(ex.what());
+        return 1;
+    }
+    return 0;
     /*
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
