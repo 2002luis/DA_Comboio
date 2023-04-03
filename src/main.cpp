@@ -10,8 +10,10 @@
 #include "data_structs/Graph.h"
 #include "fileReader.h"
 #include "overloads.h"
+#include "menu.h"
 
 int main(){
+    menu();
     /*
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
