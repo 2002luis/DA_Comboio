@@ -13,7 +13,6 @@ public:
     Station(std::string name, std::string district, std::string municipality, std::string township, std::string line);
     Station(std::string n); //construtor da preguiça
     Station();
-    Station get_station(std::string& name);
 };
 
 

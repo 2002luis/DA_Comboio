@@ -28,7 +28,3 @@ Station::Station(){
     this->line="";
 }
 
-Station Station::get_station(std::string &name) {
-
-    return Station();
-}
