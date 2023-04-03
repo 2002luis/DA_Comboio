@@ -190,7 +190,7 @@ double Graph::maxInPath(Vertex *src, Vertex *dest, bool clear = true) {
     return out;
 }
 
-<<<<<<< HEAD
+
 bool sortBy2nd(std::pair<std::string,double> p1, std::pair<std::string,int> p2){
     return p1.second>p2.second; //biggest goes first
 }
@@ -200,16 +200,18 @@ void Graph::sortTopList() {
     topDistOnlySameSorted.clear();
     topMunSorted.clear();
     topMunOnlySameSorted.clear();
-    for(auto p : topDist) topDistSorted.push_back(p);
-    for(auto p : topMun) topMunSorted.push_back(p);
-    for(auto p : topDistOnlySame) topDistOnlySameSorted.push_back(p);
-    for(auto p : topMunOnlySameSorted) topMunOnlySameSorted.push_back(p);
+    for (auto p: topDist) topDistSorted.push_back(p);
+    for (auto p: topMun) topMunSorted.push_back(p);
+    for (auto p: topDistOnlySame) topDistOnlySameSorted.push_back(p);
+    for (auto p: topMunOnlySameSorted) topMunOnlySameSorted.push_back(p);
 
-    std::sort(topDistSorted.begin(),topDistSorted.end(), sortBy2nd);
-    std::sort(topMunSorted.begin(),topMunSorted.end(), sortBy2nd);
-    std::sort(topDistOnlySameSorted.begin(),topDistOnlySameSorted.end(), sortBy2nd);
-    std::sort(topMunOnlySameSorted.begin(),topMunOnlySameSorted.end(), sortBy2nd);
-=======
+    std::sort(topDistSorted.begin(), topDistSorted.end(), sortBy2nd);
+    std::sort(topMunSorted.begin(), topMunSorted.end(), sortBy2nd);
+    std::sort(topDistOnlySameSorted.begin(), topDistOnlySameSorted.end(), sortBy2nd);
+    std::sort(topMunOnlySameSorted.begin(), topMunOnlySameSorted.end(), sortBy2nd);
+
+}
+
 std::vector<std::pair<Vertex*,Vertex*>> Graph::maxPairs(){
     double n = 0;
     std::vector<std::pair<Vertex*,Vertex*>> out;
@@ -301,5 +303,4 @@ void Graph::removeVertex(std::string n) {
 
 void Graph::removeVertex(int n) {
     this->removeVertex(this->findVertex(n));
->>>>>>> fb7bf72f29add8907d96c4a5e20cff131728bc3b
 }
