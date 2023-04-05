@@ -24,7 +24,7 @@ void menu::back() {
         catch (...) {
             back = 666;
         }
-        if (back == 1) menu();
+        if (back == 1) mainMenu();
         else if (back == 0) exit(0);
         std::cout << "> Invalid topic.\n"
                      "[1] Back to Menu.\n"
@@ -41,7 +41,7 @@ void menu::error(const std::string &erro) {
 
 
 
-menu::menu() {
+void menu::mainMenu() {
     std::cout << "\n\n\n"
                  "||-----------------------------||\n"
                  "||       RAILWAY NETWORK       ||\n"
@@ -86,9 +86,7 @@ menu::menu() {
 
             double ret;
             bool clear = true;
-            Graph g;
-            fileReader fr("TestData");
-            ret = fr.g.maxInPath(src, dest, clear);
+            ret = g.maxInPath(src, dest, clear);
 
             std::cout << "\nThe maximum number of trains is " << ret << ".";
             /*
@@ -105,13 +103,11 @@ menu::menu() {
         }
 
 
-        //the station pairs that require the most amount of trains when taking full advantage of the existing network capacity
+            //the station pairs that require the most amount of trains when taking full advantage of the existing network capacity
         else if (topicMenu == 2) {
             std::cout << "\nThe pairs of stations are:\n";
             std::vector<std::pair<Vertex*,Vertex*>> ret;
-            Graph g;
-            fileReader fr("TestData");
-            ret = fr.g.maxPairs();
+            ret = g.maxPairs();
 
             for (auto i : ret) {
                 std::cout << "> " << i.first->s.name << " => " << i.second->s.name << "\n";
@@ -121,19 +117,18 @@ menu::menu() {
         }
 
 
-        //where management should assign larger budgets for the purchasing and maintenance of trains
+            //where management should assign larger budgets for the purchasing and maintenance of trains
         else if (topicMenu == 3) {
-            Graph g;
-            fileReader fr("TestData");
-            fr.g.sortTopList();
+            g.sortTopList();
 
             std::cout << "\nChoose one topic:\n"
                          "[1] Districts\n"
                          "[2] Municipalities\n"
-                         "[3] Different districts"
-                         "[4] Different municipalities"
+                         "[3] Different districts\n"
+                         "[4] Different municipalities\n"
                          "> ";
 
+            int howMany = 0;
             int topic;
             std::string preventError;
             while (true) {
@@ -148,24 +143,65 @@ menu::menu() {
                     topic = 666;
                 }
                 if (topic == 1) {
-                    g.topDistSorted;
+                    std::cout << "\nHow many results?\n"
+                                 "> ";
+                    std::cin >> howMany;
+                    if (howMany <= 0) break;
+                    for (auto i : g.topDistSorted) {
+                        std::cout << "> " << i.first << " => " << i.second << "\n";
+                        howMany--;
+                        if (howMany == 0) break;
+                    }
+                    if (howMany != 0) {
+                        std::cout << "(no more data).\n";
+                    }
 
                     break;
                 }
                 else if (topic == 2) {
-                    g.topMunSorted;
+                    std::cout << "\nHow many results?\n"
+                                 "> ";
+                    std::cin >> howMany;
+                    if (howMany <= 0) break;
+                    for (auto i : g.topMunSorted) {
+                        std::cout << "> " << i.first << " => " << i.second << "\n";
+                        howMany--;
+                        if (howMany == 0) break;
+                    }
+                    if (howMany != 0) {
+                        std::cout << "(no more data).\n";
+                    }
 
                     break;
                 }
                 else if (topic == 3) {
-                    g.topDistOnlySameSorted;
+                    std::cout << "\nHow many results?\n"
+                                 "> ";
+                    std::cin >> howMany;
+                    if (howMany <= 0) break;
+                    for (auto i : g.topDistOnlySameSorted) {
+                        std::cout << "> " << i.first << " => " << i.second << "\n";
+                        howMany--;
+                        if (howMany == 0) break;
+                    }
+                    if (howMany != 0) {
+                        std::cout << "(no more data).\n";
+                    }
 
                     break;
                 }
                 else if (topic == 4) {
-                    std::cout << "\nManagement should assign larger budgets in:\n";
+                    std::cout << "\nHow many results?\n"
+                                 "> ";
+                    std::cin >> howMany;
+                    if (howMany <= 0) break;
                     for (auto i : g.topMunOnlySameSorted) {
                         std::cout << "> " << i.first << " => " << i.second << "\n";
+                        howMany--;
+                        if (howMany == 0) break;
+                    }
+                    if (howMany != 0) {
+                        std::cout << "(no more data).\n";
                     }
 
                     break;
@@ -180,7 +216,7 @@ menu::menu() {
         }
 
 
-        //the maximum quantity of trains that can simultaneously arrive at a given station
+            //the maximum quantity of trains that can simultaneously arrive at a given station
         else if (topicMenu == 4) {
 
 
@@ -188,7 +224,7 @@ menu::menu() {
         }
 
 
-        //the maximum number of trains that can simultaneously travel between two stations with minimum cost
+            //the maximum number of trains that can simultaneously travel between two stations with minimum cost
         else if (topicMenu == 5) {
 
 
@@ -196,7 +232,7 @@ menu::menu() {
         }
 
 
-        //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
+            //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
         else if (topicMenu == 6) {
 
 
@@ -204,7 +240,7 @@ menu::menu() {
         }
 
 
-        //provide a report on the stations that are the most affected by each segment failure
+            //provide a report on the stations that are the most affected by each segment failure
         else if (topicMenu == 7) {
 
 
@@ -212,15 +248,24 @@ menu::menu() {
         }
 
 
-        //quit the program
+            //quit the program
         else if (topicMenu == 0) exit(0);
 
-        //invalid topic
+            //invalid topic
         else {
             std::cout << "Invalid topic.\n"
                          "> ";
         }
     }
+
+}
+
+
+
+menu::menu() {
+    fileReader fr("Project1Data");
+    g = fr.g;
+    mainMenu();
 }
 
 

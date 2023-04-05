@@ -21,6 +21,7 @@ public:
     void mainMenu();
     void back();
     static void error(const std::string &s);
+    Graph g;
 };
 
 
