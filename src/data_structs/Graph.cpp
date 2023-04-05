@@ -307,9 +307,9 @@ std::pair<int,int> Graph::costOptimization(Vertex* src, Vertex* dest){
     std::pair<int,int> out = {0,0};
 
     dest->setPath(dest->getAdj()[0]);
-
+    int curCap = djikstra(src,dest);
     while(dest->getPath() != nullptr){
-        int curCap = djikstra(src,dest);
+
         auto i = dest;
         while(i->getPath() != nullptr){
             i->getPath()->setFlow(i->getPath()->getFlow()+1);
@@ -317,6 +317,8 @@ std::pair<int,int> Graph::costOptimization(Vertex* src, Vertex* dest){
         }
         out.first++;
         out.second+=curCap;
+
+        curCap = djikstra(src,dest);
     }
     return out;
 }

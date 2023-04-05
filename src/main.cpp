@@ -14,6 +14,7 @@
 
 int main(){
 
+
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
     Station s5("5"), s6("6");
@@ -39,6 +40,7 @@ int main(){
     test.addBidirectionalEdge(s2,s5,1,"STANDARD");
 
     std::cout << test.costOptimization("s1","s6");
+
     /*
     //std::cout << test;
 
