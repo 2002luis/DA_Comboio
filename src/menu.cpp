@@ -106,7 +106,15 @@ menu::menu() {
 
         //the station pairs that require the most amount of trains when taking full advantage of the existing network capacity
         else if (topicMenu == 2) {
+            std::cout << "\nThe pairs of stations are:\n";
+            std::vector<std::pair<Vertex*,Vertex*>> ret;
+            Graph g;
+            fileReader fr("TestData");
+            ret = fr.g.maxPairs();
 
+            for (auto i : ret) {
+                std::cout << "> " << i.first->s.name << " => " << i.second->s.name << "\n";
+            }
 
             back();
         }
