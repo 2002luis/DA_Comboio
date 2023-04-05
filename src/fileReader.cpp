@@ -35,7 +35,7 @@ void fileReader::readStations(std::string dir){
 
         Station s(name,district,municipality,township,tline);
 
-        this->g.addVertex(s);
+        if(g.findVertex(name)== nullptr) this->g.addVertex(s);
     }
 }
 void fileReader::readNetwork(std::string dir){
@@ -53,7 +53,11 @@ void fileReader::readNetwork(std::string dir){
         s2 = this->unformatStr(s2);
         type = this->unformatStr(type);
 
-        this->g.addBidirectionalEdge(s1,s2,cap,type);
+        bool repetido = false;
+        for(auto e : g.findVertex(s1)->getAdj()){
+            if(e->getDest()->s.name == s2) repetido = true;
+        }
+        if(!repetido) this->g.addBidirectionalEdge(s1,s2,cap,type);
     }
 }
 
