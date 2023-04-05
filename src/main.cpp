@@ -12,7 +12,7 @@
 #include "overloads.h"
 
 int main(){
-    /*
+
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
     Station s5("5"), s6("6");
@@ -68,5 +68,4 @@ int main(){
     test.removeVertex(s2.name);
 
     std::cout << test;
-     */
 }

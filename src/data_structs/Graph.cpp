@@ -191,8 +191,12 @@ double Graph::maxInPath(Vertex *src, Vertex *dest, bool clear = true) {
 }
 
 
-bool sortBy2nd(std::pair<std::string,double> p1, std::pair<std::string,int> p2){
+bool sortBy2nd(std::pair<std::string,double> p1, std::pair<std::string,double> p2){
     return p1.second>p2.second; //biggest goes first
+}
+
+bool sortEdgesBy2nd(std::pair<Edge*,int> p1, std::pair<Edge*,int> p2){
+    return p1.second > p2.second;
 }
 
 void Graph::sortTopList() {
@@ -303,4 +307,33 @@ void Graph::removeVertex(std::string n) {
 
 void Graph::removeVertex(int n) {
     this->removeVertex(this->findVertex(n));
+}
+
+std::vector<std::pair<Edge*,int>> Graph::getDiffs(Graph* g, int n){
+    std::vector<std::pair<Edge*,int>> tmp;
+
+    for(auto i : g->vertexSet){
+        auto j = this->findVertex(i->s.name);
+        if(j!= nullptr){
+            for(auto e : i->getAdj()){
+                for(auto e2: j->getAdj()){
+                    if(e->getDest() == e2->getDest()){
+                        tmp.push_back({e,std::abs(e->getFlow()-e2->getFlow())});
+                    }
+                }
+            }
+        }
+    }
+
+    std::sort(tmp.begin(),tmp.end(),sortEdgesBy2nd);
+
+    std::vector<std::pair<Edge*,int>> out;
+
+    for(int i = 0; i < n; i ++){
+        if(i > tmp.size()) return out;
+
+        out.push_back(tmp[i]);
+    }
+
+    return out;
 }

@@ -74,6 +74,8 @@ public:
     void removeVertex(Vertex* a);
     void removeVertex(std::string n);
     void removeVertex(int n);
+
+    std::vector<std::pair<Edge*,int>> getDiffs(Graph* g, int n);
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
     std::unordered_map<std::string, double> topDist, topMun, topDistOnlySame, topMunOnlySame;
