@@ -300,13 +300,36 @@ void menu::mainMenu() {
                                      "[2] No\n"
                                      "> ";
                     }
-
+                    break;
                 }
-                else if (removeTopic == 2) break;
-                std::cout << "> Invalid topic.\n"
-                             "[1] Yes, remove\n"
-                             "[2] No\n"
-                             "> ";
+                else if (removeTopic == 2) {
+                    std::cout << "topic 4.1 or 4.2?\n"
+                                 "[1] \n"
+                                 "[2] \n"
+                                 "> ";
+                    int choiceTopic = 0;
+                    std::cin >> choiceTopic;
+                    while (true) {
+                        if (choiceTopic == 1) {
+
+                            break;
+                        }
+                        else if (choiceTopic == 2) {
+
+                            break;
+                        }
+                        std::cout << "> Invalid topic.\n"
+                                     "[1] \n"
+                                     "[2] \n"
+                                     "> ";
+                    }
+                }
+                else {
+                    std::cout << "> Invalid topic.\n"
+                                 "[1] Yes, remove\n"
+                                 "[2] No\n"
+                                 "> ";
+                }
             }
 
             back();
