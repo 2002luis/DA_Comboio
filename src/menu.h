@@ -10,6 +10,7 @@
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
 #include "data_structs/VertexEdge.h"
+#include "fileReader.h"
 
 class menu {
 private:
@@ -20,6 +21,7 @@ public:
     void mainMenu();
     void back();
     static void error(const std::string &s);
+    Graph g;
 };
 
 
