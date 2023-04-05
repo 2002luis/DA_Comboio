@@ -24,7 +24,7 @@ void menu::back() {
         catch (...) {
             back = 666;
         }
-        if (back == 1) menu();
+        if (back == 1) mainMenu();
         else if (back == 0) exit(0);
         std::cout << "> Invalid topic.\n"
                      "[1] Back to Menu.\n"
@@ -43,9 +43,9 @@ void menu::error(const std::string &erro) {
 
 void menu::mainMenu() {
     std::cout << "\n\n\n"
-                 "||═════════════════════════════||\n"
+                 "||-----------------------------||\n"
                  "||       RAILWAY NETWORK       ||\n"
-                 "||═════════════════════════════||\n";
+                 "||-----------------------------||\n";
 
     std::cout << "\nChoose one topic:\n"
                  "[1] The maximum amount of trains that can simultaneously travel between two stations.\n"
@@ -54,7 +54,7 @@ void menu::mainMenu() {
                  //"[4] The maximum quantity of trains that can simultaneously arrive at a given station.\n"
                  "[5] The maximum number of trains that can simultaneously travel between two stations with minimum cost.\n"
                  "[6] The maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity.\n"
-                 //"[7] Provide a report on the stations that are the most affected by each segment failure.\n"
+                 "[7] Provide a report on the stations that are the most affected by each segment failure.\n"
 
                  "\n[0] Quit.\n"
                  "> ";
@@ -77,7 +77,28 @@ void menu::mainMenu() {
 
         //the maximum amount of trains that can simultaneously travel between two stations
         if (topicMenu == 1) {
+            std::cout << "\nWrite the name of two stations:\n"
+                         "> ";
+            std::string src, dest;
+            std::cin >> src;
+            std::cout << "> ";
+            std::cin >> dest;
 
+            double ret;
+            bool clear = true;
+            Graph g;
+            fileReader fr("TestData");
+            ret = fr.g.maxInPath(src, dest, clear);
+
+            std::cout << "\nThe maximum number of trains is " << ret << ".";
+            /*
+            1-maxInPath
+            2-maxpairs
+             3-sortTopList   , municipios/distritos?? , distritos diferentes??, pedir quantos quer
+            4-
+             5-
+             6-
+             */
 
             back();
         }
@@ -146,9 +167,9 @@ void menu::mainMenu() {
 
 menu::menu() {
     std::cout << "\n\n\n"
-                 "||═════════════════════════════||\n"
+                 "||-----------------------------||\n"
                  "||       RAILWAY NETWORK       ||\n"
-                 "||═════════════════════════════||\n";
+                 "||-----------------------------||\n";
 
     std::cout << "\nChoose one topic:\n"
                  "[1] Station login.\n"

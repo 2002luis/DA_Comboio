@@ -10,6 +10,7 @@
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
 #include "data_structs/VertexEdge.h"
+#include "fileReader.h"
 
 class menu {
 private:
