@@ -6,7 +6,6 @@
 #include <string>
 #include <ostream>
 #include <unordered_map>
-#include <wsman.h>
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
 #include "fileReader.h"
@@ -14,7 +13,7 @@
 #include "menu.h"
 
 int main(){
-
+    /*
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
     Station s5("5"), s6("6");
@@ -70,4 +69,11 @@ int main(){
     test.removeVertex(s2.name);
 
     std::cout << test;
+     */
+
+    fileReader fR("Project1Data");
+
+    std::cout << fR.g.getVertexSet().size();
+
+    return 0;
 }
