@@ -54,10 +54,13 @@ void fileReader::readNetwork(std::string dir){
         type = this->unformatStr(type);
 
         bool repetido = false;
-        for(auto e : g.findVertex(s1)->getAdj()){
-            if(e->getDest()->s.name == s2) repetido = true;
+        if(g.findVertex(s1) != nullptr && g.findVertex(s2)!= nullptr)
+        {
+            for (auto e: g.findVertex(s1)->getAdj()) {
+                if (e->getDest()->s.name == s2) repetido = true;
+            }
+            if (!repetido) this->g.addBidirectionalEdge(s1, s2, cap, type);
         }
-        if(!repetido) this->g.addBidirectionalEdge(s1,s2,cap,type);
     }
 }
 
