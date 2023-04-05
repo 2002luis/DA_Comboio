@@ -84,11 +84,16 @@ void menu::mainMenu() {
             std::cout << "> ";
             std::cin >> dest;
 
-            double ret;
-            bool clear = true;
-            ret = g.maxInPath(src, dest, clear);
+            if (g.findVertex(src) && g.findVertex(dest)) {
+                double ret;
+                bool clear = true;
+                ret = g.maxInPath(src, dest, clear);
 
-            std::cout << "\nThe maximum number of trains is " << ret << ".";
+                std::cout << "\nThe maximum number of trains is " << ret << ".";
+            }
+            else {
+                std::cout << "\nInvalid stations.\n";
+            }
             /*
             1-maxInPath
             2-maxpairs
@@ -103,7 +108,7 @@ void menu::mainMenu() {
         }
 
 
-            //the station pairs that require the most amount of trains when taking full advantage of the existing network capacity
+        //the station pairs that require the most amount of trains when taking full advantage of the existing network capacity
         else if (topicMenu == 2) {
             std::cout << "\nThe pairs of stations are:\n";
             std::vector<std::pair<Vertex*,Vertex*>> ret;
@@ -117,7 +122,7 @@ void menu::mainMenu() {
         }
 
 
-            //where management should assign larger budgets for the purchasing and maintenance of trains
+        //where management should assign larger budgets for the purchasing and maintenance of trains
         else if (topicMenu == 3) {
             g.sortTopList();
 
@@ -216,7 +221,7 @@ void menu::mainMenu() {
         }
 
 
-            //the maximum quantity of trains that can simultaneously arrive at a given station
+        //the maximum quantity of trains that can simultaneously arrive at a given station
         else if (topicMenu == 4) {
 
 
@@ -224,7 +229,7 @@ void menu::mainMenu() {
         }
 
 
-            //the maximum number of trains that can simultaneously travel between two stations with minimum cost
+        //the maximum number of trains that can simultaneously travel between two stations with minimum cost
         else if (topicMenu == 5) {
 
 
@@ -232,7 +237,7 @@ void menu::mainMenu() {
         }
 
 
-            //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
+        //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
         else if (topicMenu == 6) {
 
 
@@ -240,7 +245,7 @@ void menu::mainMenu() {
         }
 
 
-            //provide a report on the stations that are the most affected by each segment failure
+        //provide a report on the stations that are the most affected by each segment failure
         else if (topicMenu == 7) {
 
 
@@ -248,10 +253,10 @@ void menu::mainMenu() {
         }
 
 
-            //quit the program
+        //quit the program
         else if (topicMenu == 0) exit(0);
 
-            //invalid topic
+        //invalid topic
         else {
             std::cout << "Invalid topic.\n"
                          "> ";
