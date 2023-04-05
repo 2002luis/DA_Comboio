@@ -6,10 +6,12 @@
 #include <string>
 #include <ostream>
 #include <unordered_map>
+#include <wsman.h>
 #include "data_structs/Station.h"
 #include "data_structs/Graph.h"
 #include "fileReader.h"
 #include "overloads.h"
+#include "menu.h"
 
 int main(){
 
