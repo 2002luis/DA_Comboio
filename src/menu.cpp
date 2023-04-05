@@ -98,13 +98,10 @@ void menu::mainMenu() {
             ret = g.maxInPath(src, dest, clear);
             std::cout << "\nThe maximum number of trains is " << ret << ".\n";
             /*
-            1-maxInPath
-            2-maxpairs
-             3-sortTopList   , municipios/distritos?? , distritos diferentes??, pedir quantos quer
             4-
-             5-
-             6-
-            7-
+             5- costOptimization (numero de comboios, preço) --> AINDA N TA
+             6- criar outro graph igual, queres tirar vertex ou edge? fazer o 1 topico
+            7- criar outro graph igual, queres tirar vertex ou edge? fazer o 3 topico. getDiffs
              */
 
             back();
@@ -113,7 +110,7 @@ void menu::mainMenu() {
 
         //the station pairs that require the most amount of trains when taking full advantage of the existing network capacity
         else if (topicMenu == 2) {
-            std::cout << "\nThe pairs of stations are:\n";
+            std::cout << "\nThe pairs of stations are (wait a moment):\n";
             std::vector<std::pair<Vertex*,Vertex*>> ret;
             ret = g.maxPairs();
 
@@ -217,6 +214,8 @@ void menu::mainMenu() {
                 std::cout << "> Invalid topic.\n"
                              "[1] Districts\n"
                              "[2] Municipalities\n"
+                             "[3] Different districts\n"
+                             "[4] Different municipalities\n"
                              "> ";
             }
 
@@ -242,7 +241,73 @@ void menu::mainMenu() {
 
         //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
         else if (topicMenu == 6) {
+            Graph g2(g);
+            std::cout << "\nDo you want to remove something:\n"
+                         "[1] Yes, remove\n"
+                         "[2] No\n"
+                         "> ";
 
+            int removeTopic = 0;
+            std::cin >> removeTopic;
+            while (true) {
+                if (removeTopic == 1) {
+                    std::cout << "\nWhat do you want removed:\n"
+                                 "[1] Station\n"
+                                 "[2] Edge\n"
+                                 "> ";
+
+                    std::string src, dest, name;
+                    Station stationSup;
+                    int choiceTopic = 0;
+                    std::cin >> choiceTopic;
+                    while (true) {
+                        if (choiceTopic == 1) {
+                            std::cout << "\nWrite the name of the station:\n"
+                                         "> ";
+
+                            std::cin >> name;
+                            while (!(g2.findVertex(name))) {
+                                std::cout << "\nInvalid station.\n";
+                                std::cout << "\nWrite the name of the station:\n"
+                                             "> ";
+                                std::cin >> name;
+                            }
+
+                            g2.removeVertex(name);
+                            break;
+                        }
+                        else if (choiceTopic == 2) {
+                            std::cout << "\nWrite the name of two stations:\n"
+                                         "> ";
+                            std::cin >> src;
+                            std::cout << "> ";
+                            std::cin >> dest;
+
+                            while (!(g2.findVertex(src) && g2.findVertex(dest))) {
+                                std::cout << "\nInvalid stations.\n";
+                                std::cout << "\nWrite the name of two stations:\n"
+                                             "> ";
+                                std::cin >> src;
+                                std::cout << "> ";
+                                std::cin >> dest;
+                            }
+
+                            g2.removeEdge(src, dest);
+                            break;
+                        }
+                        std::cout << "> Invalid topic.\n"
+                                     "[1] Yes, remove\n"
+                                     "[2] No\n"
+                                     "> ";
+                    }
+
+                }
+                else if (removeTopic == 2) break;
+                std::cout << "> Invalid topic.\n"
+                             "[1] Yes, remove\n"
+                             "[2] No\n"
+                             "> ";
+            }
 
             back();
         }
