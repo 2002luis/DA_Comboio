@@ -237,47 +237,6 @@ std::vector<std::pair<Vertex*,Vertex*>> Graph::maxPairs(){
     return out;
 }
 
-double Graph::maxArriveInStation(std::string dest) {
-    return this->maxArriveInStation(this->findVertex(dest));
-}
-
-double Graph::maxArriveInStation(Vertex* dest){
-
-    this->removePaths();
-    this->removeFlow();
-    this->removeVisited();
-    Graph temp = this;
-
-    std::vector<Vertex*> lst;
-    std::queue<Vertex*> q;
-    temp.findVertex(dest->s.name)->setVisited(true);
-    q.push(temp.findVertex(dest->s.name));
-    while(!q.empty()){
-        Vertex* cur = q.front();
-        q.pop();
-        bool noAdj = true;
-        for(auto &e : cur->getAdj()){
-
-            if(!e->getDest()->isVisited()){
-                noAdj = false;
-                e->getDest()->setVisited(true);
-                q.push(e->getDest());
-            }
-        }
-        if(noAdj){
-            lst.push_back(cur);
-        }
-    }
-
-    Station tmpEnd("TMPSTATION","TMP","TMP","TMP","TMP");
-    temp.addVertex(tmpEnd);
-    for(auto i : lst){
-        temp.addBidirectionalEdge(i->s.name, "TMPSTATION", INF, "TMP");
-    }
-
-    return temp.maxInPath(dest->s.name,"TMPSTATION",false);
-}
-
 void Graph::removeEdge(std::string a, std::string b) {
     this->removeEdge(this->findVertex(a),this->findVertex(b));
 }

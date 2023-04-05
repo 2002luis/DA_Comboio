@@ -58,9 +58,6 @@ public:
 
     std::vector<std::pair<Vertex*,Vertex*>> maxPairs(); //4.2 T2.2 2 valores
 
-    double maxArriveInStation(std::string dest); //4.4 1 valor
-    double maxArriveInStation(Vertex* dest);
-
     std::unordered_map<std::string, int> stList;
 
 
