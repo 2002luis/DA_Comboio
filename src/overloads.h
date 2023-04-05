@@ -27,5 +27,7 @@ std::ostream& operator<<(std::ostream& o, std::pair<Vertex*,Vertex*> vp);
 
 std::ostream& operator<<(std::ostream& o, std::vector<std::pair<Vertex*,Vertex*>> v);
 
+std::ostream& operator<<(std::ostream& o, std::pair<int,int> p);
+
 
 #endif //DA_QUIMBOIO_OVERLOADS_H

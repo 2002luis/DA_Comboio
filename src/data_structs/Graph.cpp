@@ -296,3 +296,58 @@ std::vector<std::pair<Edge*,int>> Graph::getDiffs(Graph* g, int n){
 
     return out;
 }
+
+std::pair<int,int> Graph::costOptimization(std::string src, std::string dest){
+    return this->costOptimization(this->findVertex(src),this->findVertex(dest));
+}
+
+std::pair<int,int> Graph::costOptimization(Vertex* src, Vertex* dest){
+    this->removeFlow();
+    this->removePaths();
+    std::pair<int,int> out = {0,0};
+
+    dest->setPath(dest->getAdj()[0]);
+
+    while(dest->getPath() != nullptr){
+        int curCap = djikstra(src,dest);
+        auto i = dest;
+        while(i->getPath() != nullptr){
+            i->getPath()->setFlow(i->getPath()->getFlow()+1);
+            i = i->getPath()->getOrig();
+        }
+        out.first++;
+        out.second+=curCap;
+    }
+    return out;
+}
+
+
+class Compare{
+public:
+    bool operator()(std::pair<Vertex*,int> p1, std::pair<Vertex*,int> p2){
+        return p2.second < p1.second;
+    }
+};
+
+int Graph::djikstra(Vertex *src, Vertex *dest) {
+    this->removePaths();
+    std::priority_queue<std::pair<Vertex*,int>,std::vector<std::pair<Vertex*,int>>,Compare> q;
+    q.push({src,0});
+    while(!q.empty()){
+        auto cur = q.top().first;
+        auto curName = cur->s.name;
+        auto curC = q.top().second;
+        if(cur == dest) return curC;
+        q.pop();
+        for(auto e : cur->getAdj()){
+            if(e->getFlow()<e->getWeight() && e->getDest()->getPath()== nullptr && e->getDest() != src){
+                e->getDest()->setPath(e);
+                int newC = curC;
+                if(e->getType() == "STANDARD") newC+=2;
+                else newC+=4;
+                q.push({e->getDest(),newC});
+            }
+        }
+    }
+    return -1;
+}
