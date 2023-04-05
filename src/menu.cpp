@@ -98,6 +98,7 @@ menu::menu() {
             4-
              5-
              6-
+            7-
              */
 
             back();
@@ -122,7 +123,58 @@ menu::menu() {
 
         //where management should assign larger budgets for the purchasing and maintenance of trains
         else if (topicMenu == 3) {
+            Graph g;
+            fileReader fr("TestData");
+            fr.g.sortTopList();
 
+            std::cout << "\nChoose one topic:\n"
+                         "[1] Districts\n"
+                         "[2] Municipalities\n"
+                         "[3] Different districts"
+                         "[4] Different municipalities"
+                         "> ";
+
+            int topic;
+            std::string preventError;
+            while (true) {
+                topic = 0;
+                preventError = "";
+                std::cin >> preventError;
+                //try and catch to prevent input errors
+                try {
+                    topic = stoi(preventError);
+                }
+                catch (...) {
+                    topic = 666;
+                }
+                if (topic == 1) {
+                    g.topDistSorted;
+
+                    break;
+                }
+                else if (topic == 2) {
+                    g.topMunSorted;
+
+                    break;
+                }
+                else if (topic == 3) {
+                    g.topDistOnlySameSorted;
+
+                    break;
+                }
+                else if (topic == 4) {
+                    std::cout << "\nManagement should assign larger budgets in:\n";
+                    for (auto i : g.topMunOnlySameSorted) {
+                        std::cout << "> " << i.first << " => " << i.second << "\n";
+                    }
+
+                    break;
+                }
+                std::cout << "> Invalid topic.\n"
+                             "[1] Districts\n"
+                             "[2] Municipalities\n"
+                             "> ";
+            }
 
             back();
         }
