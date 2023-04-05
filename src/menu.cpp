@@ -24,7 +24,7 @@ void menu::back() {
         catch (...) {
             back = 666;
         }
-        if (back == 1) mainMenu();
+        if (back == 1) menu();
         else if (back == 0) exit(0);
         std::cout << "> Invalid topic.\n"
                      "[1] Back to Menu.\n"
@@ -41,7 +41,7 @@ void menu::error(const std::string &erro) {
 
 
 
-void menu::mainMenu() {
+menu::menu() {
     std::cout << "\n\n\n"
                  "||-----------------------------||\n"
                  "||       RAILWAY NETWORK       ||\n"
@@ -154,70 +154,6 @@ void menu::mainMenu() {
 
         //quit the program
         else if (topicMenu == 0) exit(0);
-
-        //invalid topic
-        else {
-            std::cout << "Invalid topic.\n"
-                         "> ";
-        }
-    }
-}
-
-
-
-menu::menu() {
-    std::cout << "\n\n\n"
-                 "||-----------------------------||\n"
-                 "||       RAILWAY NETWORK       ||\n"
-                 "||-----------------------------||\n";
-
-    std::cout << "\nChoose one topic:\n"
-                 "[1] Station login.\n"
-                 "[2] Guest.\n"
-
-                 "\n[0] Quit.\n"
-                 "> ";
-
-    int topicLogin;
-    std::string preventErrors;
-    while (true) {
-        topicLogin = 0;
-        preventErrors = "";
-        std::cin >> preventErrors;
-        //try and catch to prevent input errors
-        try {
-            topicLogin = stoi(preventErrors);
-        }
-        catch (...) {
-            topicLogin = 666;
-        }
-
-
-        //program with login
-        /*if (topicLogin == 1) {
-            std::cout << "\nStation name:\n"
-                         "> ";
-            std::string stationName;
-            std::cin >> stationName;
-            Station station;
-            station = Station(stationName);
-            while (station.name.empty()) {
-                std::cout << "Invalid name.\n"
-                             "> ";
-                std::cin >> stationName;
-                Station station = Station(stationName);
-            }
-            userStation = station;
-
-            std::cout << "\n" << station.name;
-            mainMenu();
-        }*/
-
-        //program with guest
-        /*else*/ if (topicLogin == 2) mainMenu();
-
-        //quit the program
-        else if (topicLogin == 0) exit(0);
 
         //invalid topic
         else {
