@@ -84,16 +84,19 @@ void menu::mainMenu() {
             std::cout << "> ";
             std::cin >> dest;
 
-            if (g.findVertex(src) && g.findVertex(dest)) {
-                double ret;
-                bool clear = true;
-                ret = g.maxInPath(src, dest, clear);
-
-                std::cout << "\nThe maximum number of trains is " << ret << ".";
-            }
-            else {
+            while (!(g.findVertex(src) && g.findVertex(dest))) {
                 std::cout << "\nInvalid stations.\n";
+                std::cout << "\nWrite the name of two stations:\n"
+                             "> ";
+                std::cin >> src;
+                std::cout << "> ";
+                std::cin >> dest;
             }
+
+            double ret;
+            bool clear = true;
+            ret = g.maxInPath(src, dest, clear);
+            std::cout << "\nThe maximum number of trains is " << ret << ".\n";
             /*
             1-maxInPath
             2-maxpairs
