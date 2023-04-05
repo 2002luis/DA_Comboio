@@ -13,7 +13,7 @@
 #include "menu.h"
 
 int main(){
-    /*
+
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
     Station s5("5"), s6("6");
@@ -30,20 +30,22 @@ int main(){
     std::cout << "\n\n\n\n\n";
 
 
-    test.addBidirectionalEdge(s1,s2,5,"");
-    test.addBidirectionalEdge(s2,s3,3,"");
-    test.addBidirectionalEdge(s1,s4,3,"");
-    test.addBidirectionalEdge(s4,s5,3,"");
-    test.addBidirectionalEdge(s5,s6,5,"");
-    test.addBidirectionalEdge(s3,s6,3,"");
+    test.addBidirectionalEdge(s1,s2,1,"STANDARD");
+    test.addBidirectionalEdge(s2,s3,1,"");
+    test.addBidirectionalEdge(s1,s4,1,"");
+    test.addBidirectionalEdge(s4,s5,1,"");
+    test.addBidirectionalEdge(s5,s6,1,"STANDARD");
+    test.addBidirectionalEdge(s3,s6,1,"STANDARD");
+    test.addBidirectionalEdge(s2,s5,1,"STANDARD");
 
-
+    std::cout << test.costOptimization("s1","s6");
+    /*
     //std::cout << test;
 
     //test.dfs(s1.name,s6.name);
 
 
-    test.addBidirectionalEdge(s2,s5,5,"");
+
 
     //test.dfs(s1.name,s6.name);
 
@@ -69,11 +71,12 @@ int main(){
     test.removeVertex(s2.name);
 
     std::cout << test;
-     */
+
 
     fileReader fR("Project1Data");
 
     std::cout << fR.g.getVertexSet().size();
+     */
 
     return 0;
 }

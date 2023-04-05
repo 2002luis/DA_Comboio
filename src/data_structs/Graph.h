@@ -53,26 +53,30 @@ public:
     void removeFlow();
     void removeVisited();
 
-    double maxInPath(std::string src, std::string dest, bool clear); //4.1 T2.1 3.5 valores
+    double maxInPath(std::string src, std::string dest, bool clear); //T2.1 3.5 valores
     double maxInPath(Vertex* src, Vertex* dest, bool clear);
 
-    std::vector<std::pair<Vertex*,Vertex*>> maxPairs(); //4.2 T2.2 2 valores
+    std::vector<std::pair<Vertex*,Vertex*>> maxPairs(); //T2.2 2 valores
 
     std::unordered_map<std::string, int> stList;
 
 
-    void sortTopList();
+    void sortTopList(); //T2.3
     std::vector<std::pair<std::string,double>> topDistSorted, topMunSorted, topDistOnlySameSorted, topMunOnlySameSorted;
 
-    void removeEdge(std::string a, std::string b);
+    std::pair<int,int> costOptimization(std::string src, std::string dest);
+    std::pair<int,int> costOptimization(Vertex* src, Vertex* dest);
+    int djikstra(Vertex* src, Vertex* dest);
+
+    void removeEdge(std::string a, std::string b); //T4.1
     void removeEdge(Vertex* a, Vertex* b);
     void removeEdge(Edge* e);
 
-    void removeVertex(Vertex* a);
+    void removeVertex(Vertex* a); //tudo 4.1
     void removeVertex(std::string n);
     void removeVertex(int n);
 
-    std::vector<std::pair<Edge*,int>> getDiffs(Graph* g, int n);
+    std::vector<std::pair<Edge*,int>> getDiffs(Graph* g, int n); // 4.2????
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set
     std::unordered_map<std::string, double> topDist, topMun, topDistOnlySame, topMunOnlySame;
@@ -90,5 +94,7 @@ protected:
 
 void deleteMatrix(int **m, int n);
 void deleteMatrix(double **m, int n);
+
+
 
 #endif /* DA_TP_CLASSES_GRAPH */

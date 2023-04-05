@@ -51,3 +51,8 @@ std::ostream& operator<<(std::ostream& o, std::vector<std::pair<Vertex*,Vertex*>
     for(auto i : v) o << i << "    ";
     return o;
 }
+
+std::ostream& operator<<(std::ostream& o, std::pair<int,int> intp){
+    o << intp.first << ' ' << intp.second << '\t';
+    return o;
+}
