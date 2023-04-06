@@ -51,10 +51,9 @@ void menu::mainMenu() {
                  "[1] The maximum amount of trains that can simultaneously travel between two stations.\n"
                  "[2] The station pairs that require the most amount of trains when taking full advantage of the existing network capacity.\n"
                  "[3] Where management should assign larger budgets for the purchasing and maintenance of trains.\n"
-                 //"[4] The maximum quantity of trains that can simultaneously arrive at a given station.\n"
-                 "[5] The maximum number of trains that can simultaneously travel between two stations with minimum cost.\n"
+                 "[4] The maximum number of trains that can simultaneously travel between two stations with minimum cost.\n"
 
-                 "\n[6] Functions with a new graph:\n"
+                 "\n[5] Functions with a new graph:\n"
                  " - The maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity.\n"
                  " - Provide a report on the stations that are the most affected by each segment failure.\n"
 
@@ -222,16 +221,8 @@ void menu::mainMenu() {
         }
 
 
-        //the maximum quantity of trains that can simultaneously arrive at a given station
-        else if (topicMenu == 4) {
-
-
-            back();
-        }
-
-
         //the maximum number of trains that can simultaneously travel between two stations with minimum cost
-        else if (topicMenu == 5) {
+        else if (topicMenu == 4) {
             std::cout << "\nWrite the name of two stations:\n"
                          "> ";
             std::string src, dest;
@@ -258,7 +249,7 @@ void menu::mainMenu() {
 
         //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
         //provide a report on the stations that are the most affected by each segment failure
-        else if (topicMenu == 6) {
+        else if (topicMenu == 5) {
             Graph g2(&g);
             std::cout << "\nDo you want to remove something:\n"
                          "[1] Yes, remove\n"
@@ -367,6 +358,8 @@ void menu::mainMenu() {
                             std::cin >> howMany;
                             if (howMany <= 0) break;
                             for (auto i : g2.getDiffs(&g, howMany)) {
+                                g.fordFulkerson(i.first->getOrig()->s.name, i.first->getDest()->s.name);
+                                g2.fordFulkerson(i.first->getOrig()->s.name, i.first->getDest()->s.name);
                                 std::cout << " - " << i.first->getOrig()->s.name << " => " << i.first->getDest()->s.name
                                           << " (number of edges " << i.second << ").\n";
                                 howMany--;
