@@ -115,7 +115,7 @@ void menu::mainMenu() {
             ret = g.maxPairs();
 
             for (auto i : ret) {
-                std::cout << "> " << i.first->s.name << " => " << i.second->s.name << "\n";
+                std::cout << " - " << i.first->s.name << " => " << i.second->s.name << "\n";
             }
 
             back();
@@ -185,7 +185,7 @@ void menu::mainMenu() {
                     std::cin >> howMany;
                     if (howMany <= 0) break;
                     for (auto i : g.topDistOnlySameSorted) {
-                        std::cout << "> " << i.first << " => " << i.second << "\n";
+                        std::cout << " - " << i.first << " => " << i.second << "\n";
                         howMany--;
                         if (howMany == 0) break;
                     }
@@ -240,6 +240,7 @@ void menu::mainMenu() {
 
 
         //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
+        //provide a report on the stations that are the most affected by each segment failure
         else if (topicMenu == 6) {
             Graph g2(&g);
             std::cout << "\nDo you want to remove something:\n"
@@ -348,7 +349,11 @@ void menu::mainMenu() {
                                          "> ";
                             std::cin >> howMany;
                             if (howMany <= 0) break;
-                            g2.getDiffs(&g, howMany);
+                            for (auto i : g2.getDiffs(&g, howMany)) {
+                                std::cout << " - " << i.first << " => " << i.second << "\n";
+                                howMany--;
+                                if (howMany == 0) break;
+                            }
                             break;
                         }
                         else if (choiceTopic == 3) {
@@ -368,14 +373,6 @@ void menu::mainMenu() {
                                  "> ";
                 }
             }
-        }
-
-
-        //provide a report on the stations that are the most affected by each segment failure
-        else if (topicMenu == 7) {
-
-
-            back();
         }
 
 

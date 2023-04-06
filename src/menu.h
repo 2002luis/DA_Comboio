@@ -20,15 +20,13 @@ public:
     /**
      * @brief Main menu of all the program with all the functionalities
      *
-     * The flow variables of each edge are changed, and the result can be used by other functions
      * Complexity O()
      */
     void mainMenu();
     /**
      * @brief Function to return to the main menu
      *
-     * The flow variables of each edge are changed, and the result can be used by other functions
-     * Complexity O()
+     * Complexity O(1)
      */
     void back();
     /**
