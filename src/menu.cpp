@@ -95,7 +95,7 @@ void menu::mainMenu() {
 
             double ret;
             bool clear = true;
-            ret = g.maxInPath(src, dest, clear);
+            ret = g.maxInPath(src, dest);
             std::cout << "\nThe maximum number of trains is " << ret << ".\n";
             /*
             4-

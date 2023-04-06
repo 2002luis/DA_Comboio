@@ -56,3 +56,10 @@ std::ostream& operator<<(std::ostream& o, std::pair<int,int> intp){
     o << intp.first << ' ' << intp.second << '\t';
     return o;
 }
+
+std::ostream& operator<<(std::ostream& o, std::vector<std::pair<Edge*, int>> v){
+    for(auto i : v){
+        o << i.first->getOrig()->s.name << "->" << i.first->getDest()->s.name << " has a difference of " << i.second << std::endl;
+    }
+    return o;
+}
