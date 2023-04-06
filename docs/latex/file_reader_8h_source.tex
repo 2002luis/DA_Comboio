@@ -1,0 +1,30 @@
+\hypertarget{file_reader_8h_source}{}\doxysection{file\+Reader.\+h}
+\label{file_reader_8h_source}\index{src/fileReader.h@{src/fileReader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by luism on 21/03/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef DA\_QUIMBOIO\_FILEREADER\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define DA\_QUIMBOIO\_FILEREADER\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}data\_structs/Graph.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}data\_structs/Station.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classfile_reader}{fileReader}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{classfile_reader}{fileReader}}();}
+\DoxyCodeLine{21     \mbox{\hyperlink{classfile_reader}{fileReader}}(std::string dir);}
+\DoxyCodeLine{29     std::string \mbox{\hyperlink{classfile_reader_acdd0a47e56bb1dbb9b8f85806b1c374b}{formatStr}}(std::string in);}
+\DoxyCodeLine{37     std::string \mbox{\hyperlink{classfile_reader_aa244f2209be3aa738e186615f2123eeb}{unformatStr}}(std::string in);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{classfile_reader_a6507ba36b7a862b1d00b09052a16790b}{readStations}}(std::string dir);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classfile_reader_ad7d691d426bb68183a27ff3020ed6b55}{readNetwork}}(std::string dir);}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_graph}{Graph}} g;}
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DA\_QUIMBOIO\_FILEREADER\_H}}
+
+\end{DoxyCode}

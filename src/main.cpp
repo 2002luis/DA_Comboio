@@ -13,7 +13,8 @@
 #include "menu.h"
 
 int main(){
-    menu();
+
+    //menu();
     /*
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
@@ -37,6 +38,11 @@ int main(){
     test.addBidirectionalEdge(s4,s5,3,"");
     test.addBidirectionalEdge(s5,s6,5,"");
     test.addBidirectionalEdge(s3,s6,3,"");
+
+
+
+    std::cout << test.costOptimization("s1","s6");
+
 
 
     //std::cout << test;
@@ -72,9 +78,19 @@ int main(){
     std::cout << test;
      */
 
-    fileReader fR("Project1Data");
+    fileReader fR("TestData");
+    Graph g2(&fR.g);
 
-    std::cout << fR.g.getVertexSet().size();
+    g2.removeVertex("s3");
+
+    std::cout << fR.g << std::endl << g2 << std::endl;
+
+    fR.g.maxInPath("s1","s6");
+    g2.maxInPath("s1","s6");
+
+    std::cout << fR.g << std::endl << g2;
+
+    std::cout << fR.g.getDiffs(&g2,10);
 
     return 0;
 }

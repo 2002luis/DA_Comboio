@@ -1,0 +1,41 @@
+\hypertarget{overloads_8h_source}{}\doxysection{overloads.\+h}
+\label{overloads_8h_source}\index{src/overloads.h@{src/overloads.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by feld on 11-\/03-\/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef DA\_QUIMBOIO\_OVERLOADS\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define DA\_QUIMBOIO\_OVERLOADS\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}data\_structs/Graph.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}data\_structs/Station.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}data\_structs/VertexEdge.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 std::ostream\& operator<<(std::ostream\& o, \mbox{\hyperlink{class_station}{Station}} s);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 std::ostream\& operator<<(std::ostream\& o, \mbox{\hyperlink{class_vertex}{Vertex}}* v);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 std::ostream\& operator<<(std::ostream\& o, std::vector<Vertex*> v);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 std::ostream\& operator<<(std::ostream\& o, std::vector<Edge*> v);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 std::ostream\& operator<<(std::ostream\& o, \mbox{\hyperlink{class_edge}{Edge}}* e);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 std::ostream\& operator<<(std::ostream\& o, \mbox{\hyperlink{class_graph}{Graph}} g);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 std::ostream\& operator<<(std::ostream\& o, std::pair<Vertex*,Vertex*> vp);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 std::ostream\& operator<<(std::ostream\& o, std::vector<std::pair<Vertex*,Vertex*>> v);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 std::ostream\& operator<<(std::ostream\& o, std::pair<int,int> p);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 std::ostream\& operator<<(std::ostream\& o, std::vector<std::pair<Edge*, int>> v);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DA\_QUIMBOIO\_OVERLOADS\_H}}
+
+\end{DoxyCode}

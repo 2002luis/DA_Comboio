@@ -1,0 +1,668 @@
+\hypertarget{class_graph}{}\doxysection{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a4a40b4906406a8d0985e9a469322674d}{Graph}} (\mbox{\hyperlink{class_graph}{Graph}} $\ast$copy)
+\begin{DoxyCompactList}\small\item\em Copies another graph Complexity O(V+E) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_graph_a089f7fc73ea9976295d387846ad36c69}{find\+Vertex}} (const int \&id) const
+\begin{DoxyCompactList}\small\item\em Auxiliary function to find a vertex with a given ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_graph_acf841dffe3589ce7ea0286864873c944}{find\+Vertex}} (const std\+::string name) const
+\begin{DoxyCompactList}\small\item\em Auxiliary function to find a vertex with a given ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a8fc959b670fb92d6eeb84508f7e43489}{add\+Vertex}} (\mbox{\hyperlink{class_station}{Station}} s)
+\begin{DoxyCompactList}\small\item\em Adds a vertex with a given content or info (in) to a graph (this). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a63fdbdd1bc02bc7d5f7ada021e20a14c}{add\+Edge}} (const std\+::string \&sourc, const std\+::string \&dest, double w, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Adds an edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_aa6275e22f054bab424ec239a40d0df1a}{add\+Bidirectional\+Edge}} (const std\+::string \&sourc, const std\+::string \&dest, double w, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Adds two edges to a graph (this), one in each direction, given the contents of the source and destination vertices and the edge weight (w). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a30e25ba1a08bf8bdd6c40480aee2e5d8}{add\+Bidirectional\+Edge}} (\mbox{\hyperlink{class_station}{Station}} s1, \mbox{\hyperlink{class_station}{Station}} s2, double w, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Adds two edges to a graph (this), one in each direction, given the contents of the source and destination vertices and the edge weight (w). \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_a619ac583094079134074658e29463c0e}{get\+Vertex\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Returns vertex set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_affe24034d400d463ea1743d23483acbb}{ford\+Fulkerson}} (std\+::string src, std\+::string dest)
+\begin{DoxyCompactList}\small\item\em Calculates maximum flow between two stations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_ac541ccbadf62372601f1d1074f5e9bc6}{ford\+Fulkerson}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Calculates maximum flow between two stations. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a4171bfd22a5ee1b3c1d8791f65cea9fb}{dfs}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Finds a path between two stations. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_aa7b7385267dc232c79547ad731c8e30d}{dfs}} (std\+::string src, std\+::string dest)
+\begin{DoxyCompactList}\small\item\em Finds a path between two stations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a476c3edf7614e2f8daf8165da3a0677c}{remove\+Paths}} ()
+\begin{DoxyCompactList}\small\item\em Sets the path variable of all vertices to nullptr. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_aad3e7e058166ff9214fb1fcf7d8712fe}{remove\+Flow}} ()
+\begin{DoxyCompactList}\small\item\em Sets the flow variable of all edges to 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a286a309296c8ba03a4edfa0f2310c5a9}{remove\+Visited}} ()
+\begin{DoxyCompactList}\small\item\em Sets the visited variable of all vertices to false. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a7a6fea25b73de6a52c801c7f3a00816e}{max\+In\+Path}} (std\+::string src, std\+::string dest)
+\begin{DoxyCompactList}\small\item\em Calculates the maximum flow from src to dest (EX T2.\+1) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a1c6686b12a4c31c93d0195922344a4e4}{max\+In\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Calculates the maximum flow from src to dest (EX T2.\+1) \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ $>$ \mbox{\hyperlink{class_graph_a327333bed76aa8ccba50d5db41a5d3fe}{max\+Pairs}} ()
+\begin{DoxyCompactList}\small\item\em Finds pairs of stations from which most trains can travel at once (EX T2.\+2) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a34bb6d6430355feef32fbb768bb610ac}{sort\+Top\+List}} ()
+\begin{DoxyCompactList}\small\item\em Sorts the lists of top municipalities and districts, both counting and not counting inter district/municipality travel. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_graph_af1d163314bb660087c07b2bcf3aba229}{cost\+Optimization}} (std\+::string src, std\+::string dest)
+\begin{DoxyCompactList}\small\item\em Finds the cheapest way to send the most trains from src to dest. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_graph_a1067bc2db3668d16acc985ff88a88f7c}{cost\+Optimization}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Finds the cheapest way to send the most trains from src to dest. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_ae35628bb87b30d241a3c79a753bb14a5}{djikstra}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Finds the lowest cost path to get from src to dest. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a6f41e415650543cad156860c5053ee84}{remove\+Edge}} (std\+::string a, std\+::string b)
+\begin{DoxyCompactList}\small\item\em Removes edge starting in a and ending in b (also starting in b and ending in a) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_ac3652df6883ad77d56fd64e2b9e0e88b}{remove\+Edge}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$a, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$b)
+\begin{DoxyCompactList}\small\item\em Removes edge starting in a and ending in b (also starting in b and ending in a) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a8436c1f36ed094f392bb7e5cd7c06adc}{remove\+Edge}} (\mbox{\hyperlink{class_edge}{Edge}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Removes edge and reverse edge from graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a4fbec5683b2c7fae5cb8a585d2f08ac0}{remove\+Vertex}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$a)
+\begin{DoxyCompactList}\small\item\em Removes vertex from graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_ab83e5bc939a39bae5d49fe88344fb313}{remove\+Vertex}} (std\+::string n)
+\begin{DoxyCompactList}\small\item\em Removes vertex from graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a6b9676f744384d80a3638b0b94f43186}{remove\+Vertex}} (int n)
+\begin{DoxyCompactList}\small\item\em Removes vertex from graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_edge}{Edge}} $\ast$, int $>$ $>$ \mbox{\hyperlink{class_graph_ae3f96ed65dea14e315f69daa6adeae8f}{get\+Diffs}} (\mbox{\hyperlink{class_graph}{Graph}} $\ast$g, int n)
+\begin{DoxyCompactList}\small\item\em Compares differences between edges of two graphs,. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_graph_ab355666a910f8a8d83fa6d4eacd51701}\label{class_graph_ab355666a910f8a8d83fa6d4eacd51701}} 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ {\bfseries st\+List}
+\item 
+\mbox{\Hypertarget{class_graph_a18b63e187a80847e87ebe99483b7dabe}\label{class_graph_a18b63e187a80847e87ebe99483b7dabe}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, double $>$ $>$ {\bfseries top\+Dist\+Sorted}
+\item 
+\mbox{\Hypertarget{class_graph_a07102011298af2652c46d99a396808e4}\label{class_graph_a07102011298af2652c46d99a396808e4}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, double $>$ $>$ {\bfseries top\+Mun\+Sorted}
+\item 
+\mbox{\Hypertarget{class_graph_a06d7ddfea410753dff19db8c2653ca03}\label{class_graph_a06d7ddfea410753dff19db8c2653ca03}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, double $>$ $>$ {\bfseries top\+Dist\+Only\+Same\+Sorted}
+\item 
+\mbox{\Hypertarget{class_graph_ad0d2af283261faf2f227241c01d2b5f5}\label{class_graph_ad0d2af283261faf2f227241c01d2b5f5}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, double $>$ $>$ {\bfseries top\+Mun\+Only\+Same\+Sorted}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph_a7dfcef08a9286cf144902cd7e56940ee}{find\+Vertex\+Idx}} (const int \&id) const
+\begin{DoxyCompactList}\small\item\em Finds the index of the vertex with a given content. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}{get\+Num\+Vertex}} () const
+\begin{DoxyCompactList}\small\item\em Returns the numbers of vertices in the graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}\label{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}} 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ {\bfseries vertex\+Set}
+\item 
+\mbox{\Hypertarget{class_graph_ac71f1821a0cec06e87b613fecaefe3dd}\label{class_graph_ac71f1821a0cec06e87b613fecaefe3dd}} 
+std\+::unordered\+\_\+map$<$ std\+::string, double $>$ {\bfseries top\+Dist}
+\item 
+\mbox{\Hypertarget{class_graph_a8d2f5496a65479d758887b5fe7d92030}\label{class_graph_a8d2f5496a65479d758887b5fe7d92030}} 
+std\+::unordered\+\_\+map$<$ std\+::string, double $>$ {\bfseries top\+Mun}
+\item 
+\mbox{\Hypertarget{class_graph_ab97ed8cc9d2bf454e629aa380b3d7e5f}\label{class_graph_ab97ed8cc9d2bf454e629aa380b3d7e5f}} 
+std\+::unordered\+\_\+map$<$ std\+::string, double $>$ {\bfseries top\+Dist\+Only\+Same}
+\item 
+\mbox{\Hypertarget{class_graph_a552ab9f3de3a8687790344ea0c894470}\label{class_graph_a552ab9f3de3a8687790344ea0c894470}} 
+std\+::unordered\+\_\+map$<$ std\+::string, double $>$ {\bfseries top\+Mun\+Only\+Same}
+\item 
+\mbox{\Hypertarget{class_graph_a9e61864da69191c1896a25a708d1a02d}\label{class_graph_a9e61864da69191c1896a25a708d1a02d}} 
+double $\ast$$\ast$ {\bfseries dist\+Matrix} = nullptr
+\item 
+\mbox{\Hypertarget{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}\label{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}} 
+int $\ast$$\ast$ {\bfseries path\+Matrix} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a4a40b4906406a8d0985e9a469322674d}\label{class_graph_a4a40b4906406a8d0985e9a469322674d}} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} $\ast$}]{copy }\end{DoxyParamCaption})}
+
+
+
+Copies another graph Complexity O(V+E) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph$\ast$} & graph to copy \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_aa6275e22f054bab424ec239a40d0df1a}\label{class_graph_aa6275e22f054bab424ec239a40d0df1a}} 
+\index{Graph@{Graph}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sourc,  }\item[{const std\+::string \&}]{dest,  }\item[{double}]{w,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Adds two edges to a graph (this), one in each direction, given the contents of the source and destination vertices and the edge weight (w). 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & source station name \\
+\hline
+{\em std\+::string} & destination station name \\
+\hline
+{\em double} & max capacity between stations \\
+\hline
+{\em std\+::string} & type (either \char`\"{}\+STANDARD\char`\"{} or other) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if the source or destination vertex does not exist. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a30e25ba1a08bf8bdd6c40480aee2e5d8}\label{class_graph_a30e25ba1a08bf8bdd6c40480aee2e5d8}} 
+\index{Graph@{Graph}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}}}]{s1,  }\item[{\mbox{\hyperlink{class_station}{Station}}}]{s2,  }\item[{double}]{w,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Adds two edges to a graph (this), one in each direction, given the contents of the source and destination vertices and the edge weight (w). 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_station}{Station}}} & source station \\
+\hline
+{\em \mbox{\hyperlink{class_station}{Station}}} & destination station \\
+\hline
+{\em double} & max capacity between stations \\
+\hline
+{\em std\+::string} & type (either \char`\"{}\+STANDARD\char`\"{} or other) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if the source or destination vertex does not exist. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a63fdbdd1bc02bc7d5f7ada021e20a14c}\label{class_graph_a63fdbdd1bc02bc7d5f7ada021e20a14c}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sourc,  }\item[{const std\+::string \&}]{dest,  }\item[{double}]{w,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Adds an edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & source station name \\
+\hline
+{\em std\+::string} & destination station name \\
+\hline
+{\em double} & max capacity between stations \\
+\hline
+{\em std\+::string} & type (either \char`\"{}\+STANDARD\char`\"{} or other) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if the source or destination vertex does not exist. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a8fc959b670fb92d6eeb84508f7e43489}\label{class_graph_a8fc959b670fb92d6eeb84508f7e43489}} 
+\index{Graph@{Graph}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_station}{Station}}}]{s }\end{DoxyParamCaption})}
+
+
+
+Adds a vertex with a given content or info (in) to a graph (this). 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_station}{Station}}} & s \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if a vertex with that content already exists. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_af1d163314bb660087c07b2bcf3aba229}\label{class_graph_af1d163314bb660087c07b2bcf3aba229}} 
+\index{Graph@{Graph}!costOptimization@{costOptimization}}
+\index{costOptimization@{costOptimization}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{costOptimization()}{costOptimization()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ Graph\+::cost\+Optimization (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{dest }\end{DoxyParamCaption})}
+
+
+
+Finds the cheapest way to send the most trains from src to dest. 
+
+Considers \char`\"{}\+STANDARD\char`\"{} type edges to cost 2€ per train and any other type edges to cost 4€ per train.
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & source station name \\
+\hline
+{\em std\+::string} & destination station name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$int,int$>$ first is the number of trains, the second is the cost 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a1067bc2db3668d16acc985ff88a88f7c}\label{class_graph_a1067bc2db3668d16acc985ff88a88f7c}} 
+\index{Graph@{Graph}!costOptimization@{costOptimization}}
+\index{costOptimization@{costOptimization}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{costOptimization()}{costOptimization()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ Graph\+::cost\+Optimization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+Finds the cheapest way to send the most trains from src to dest. 
+
+Considers \char`\"{}\+STANDARD\char`\"{} type edges to cost 2€ per train and any other type edges to cost 4€ per train.
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em Vertex$\ast$} & source station \\
+\hline
+{\em Vertex$\ast$} & destination station \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$int,int$>$ first is the number of trains, the second is the cost 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_aa7b7385267dc232c79547ad731c8e30d}\label{class_graph_aa7b7385267dc232c79547ad731c8e30d}} 
+\index{Graph@{Graph}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+::dfs (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{dest }\end{DoxyParamCaption})}
+
+
+
+Finds a path between two stations. 
+
+Sets nodes path variable so that it can be used by other functions Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & origin station name \\
+\hline
+{\em std\+::string} & destination station \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if path was found otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a4171bfd22a5ee1b3c1d8791f65cea9fb}\label{class_graph_a4171bfd22a5ee1b3c1d8791f65cea9fb}} 
+\index{Graph@{Graph}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+::dfs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+Finds a path between two stations. 
+
+Sets nodes path variable so that it can be used by other functions Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em Vertex$\ast$} & origin station \\
+\hline
+{\em Vertex$\ast$} & destination station \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if path was found otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ae35628bb87b30d241a3c79a753bb14a5}\label{class_graph_ae35628bb87b30d241a3c79a753bb14a5}} 
+\index{Graph@{Graph}!djikstra@{djikstra}}
+\index{djikstra@{djikstra}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{djikstra()}{djikstra()}}
+{\footnotesize\ttfamily int Graph\+::djikstra (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+Finds the lowest cost path to get from src to dest. 
+
+Considers \char`\"{}\+STANDARD\char`\"{} type edges to cost 2€ per train and any other type edges to cost 4€ per train. Sets nodes path variable so that it can be used by other functions
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em Vertex$\ast$} & source station \\
+\hline
+{\em Vertex$\ast$} & destination station \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int the cost, returns -\/1 if no path found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a089f7fc73ea9976295d387846ad36c69}\label{class_graph_a089f7fc73ea9976295d387846ad36c69}} 
+\index{Graph@{Graph}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Graph\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Auxiliary function to find a vertex with a given ID. 
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vertex$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_acf841dffe3589ce7ea0286864873c944}\label{class_graph_acf841dffe3589ce7ea0286864873c944}} 
+\index{Graph@{Graph}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Graph\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const std\+::string}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Auxiliary function to find a vertex with a given ID. 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & name of the station in the vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vertex$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a7dfcef08a9286cf144902cd7e56940ee}\label{class_graph_a7dfcef08a9286cf144902cd7e56940ee}} 
+\index{Graph@{Graph}!findVertexIdx@{findVertexIdx}}
+\index{findVertexIdx@{findVertexIdx}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertexIdx()}{findVertexIdx()}}
+{\footnotesize\ttfamily int Graph\+::find\+Vertex\+Idx (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Finds the index of the vertex with a given content. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & content \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_affe24034d400d463ea1743d23483acbb}\label{class_graph_affe24034d400d463ea1743d23483acbb}} 
+\index{Graph@{Graph}!fordFulkerson@{fordFulkerson}}
+\index{fordFulkerson@{fordFulkerson}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{fordFulkerson()}{fordFulkerson()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Graph\+::ford\+Fulkerson (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{dest }\end{DoxyParamCaption})}
+
+
+
+Calculates maximum flow between two stations. 
+
+The flow variables of each edge are changed, and the result can be used by other functions Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & origin station name \\
+\hline
+{\em std\+::string} & destination station name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_ac541ccbadf62372601f1d1074f5e9bc6}\label{class_graph_ac541ccbadf62372601f1d1074f5e9bc6}} 
+\index{Graph@{Graph}!fordFulkerson@{fordFulkerson}}
+\index{fordFulkerson@{fordFulkerson}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{fordFulkerson()}{fordFulkerson()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Graph\+::ford\+Fulkerson (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+Calculates maximum flow between two stations. 
+
+The flow variables of each edge are changed, and the result can be used by other functions Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em Vertex$\ast$} & origin station \\
+\hline
+{\em Vertex$\ast$} & destination station \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_ae3f96ed65dea14e315f69daa6adeae8f}\label{class_graph_ae3f96ed65dea14e315f69daa6adeae8f}} 
+\index{Graph@{Graph}!getDiffs@{getDiffs}}
+\index{getDiffs@{getDiffs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getDiffs()}{getDiffs()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_edge}{Edge}} $\ast$, int $>$ $>$ Graph\+::get\+Diffs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} $\ast$}]{g,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Compares differences between edges of two graphs,. 
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em Graph$\ast$} & graph to compare \\
+\hline
+{\em int} & number of edges to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::pair$<$\+Edge$\ast$,int$>$$>$ edges of the different graphs and their difference in flow 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}\label{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}} 
+\index{Graph@{Graph}!getNumVertex@{getNumVertex}}
+\index{getNumVertex@{getNumVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
+{\footnotesize\ttfamily int Graph\+::get\+Num\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Returns the numbers of vertices in the graph. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a619ac583094079134074658e29463c0e}\label{class_graph_a619ac583094079134074658e29463c0e}} 
+\index{Graph@{Graph}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Graph\+::get\+Vertex\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns vertex set. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Vertex$\ast$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a7a6fea25b73de6a52c801c7f3a00816e}\label{class_graph_a7a6fea25b73de6a52c801c7f3a00816e}} 
+\index{Graph@{Graph}!maxInPath@{maxInPath}}
+\index{maxInPath@{maxInPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{maxInPath()}{maxInPath()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Graph\+::max\+In\+Path (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{dest }\end{DoxyParamCaption})}
+
+
+
+Calculates the maximum flow from src to dest (EX T2.\+1) 
+
+The function calls ford\+Felkurson(src,dest) and then sums the contents of the edges incoming to dest
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & src \\
+\hline
+{\em std\+::string} & dest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a1c6686b12a4c31c93d0195922344a4e4}\label{class_graph_a1c6686b12a4c31c93d0195922344a4e4}} 
+\index{Graph@{Graph}!maxInPath@{maxInPath}}
+\index{maxInPath@{maxInPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{maxInPath()}{maxInPath()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Graph\+::max\+In\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+Calculates the maximum flow from src to dest (EX T2.\+1) 
+
+The function calls ford\+Felkurson(src,dest) and then sums the contents of the edges incoming to dest Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em Vertex$\ast$} & src \\
+\hline
+{\em Vertex$\ast$} & dest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a327333bed76aa8ccba50d5db41a5d3fe}\label{class_graph_a327333bed76aa8ccba50d5db41a5d3fe}} 
+\index{Graph@{Graph}!maxPairs@{maxPairs}}
+\index{maxPairs@{maxPairs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{maxPairs()}{maxPairs()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ $>$ Graph\+::max\+Pairs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds pairs of stations from which most trains can travel at once (EX T2.\+2) 
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & src \\
+\hline
+{\em std\+::string} & dest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::pair$<$\+Vertex$\ast$,\+Vertex$\ast$$>$$>$ returns all stations that have the same max flow 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a8436c1f36ed094f392bb7e5cd7c06adc}\label{class_graph_a8436c1f36ed094f392bb7e5cd7c06adc}} 
+\index{Graph@{Graph}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Graph\+::remove\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Removes edge and reverse edge from graph. 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em Edge$\ast$} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a6f41e415650543cad156860c5053ee84}\label{class_graph_a6f41e415650543cad156860c5053ee84}} 
+\index{Graph@{Graph}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Graph\+::remove\+Edge (\begin{DoxyParamCaption}\item[{std\+::string}]{a,  }\item[{std\+::string}]{b }\end{DoxyParamCaption})}
+
+
+
+Removes edge starting in a and ending in b (also starting in b and ending in a) 
+
+Complexity O(V+E) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & source station name \\
+\hline
+{\em std\+::string} & destination station name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_ac3652df6883ad77d56fd64e2b9e0e88b}\label{class_graph_ac3652df6883ad77d56fd64e2b9e0e88b}} 
+\index{Graph@{Graph}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Graph\+::remove\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{a,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Removes edge starting in a and ending in b (also starting in b and ending in a) 
+
+Complexity O(\+E) 
+\begin{DoxyParams}{Parameters}
+{\em Vertex$\ast$} & source station \\
+\hline
+{\em Vertex$\ast$} & destination station \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_aad3e7e058166ff9214fb1fcf7d8712fe}\label{class_graph_aad3e7e058166ff9214fb1fcf7d8712fe}} 
+\index{Graph@{Graph}!removeFlow@{removeFlow}}
+\index{removeFlow@{removeFlow}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeFlow()}{removeFlow()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the flow variable of all edges to 0. 
+
+Complexity O(V+E) \mbox{\Hypertarget{class_graph_a476c3edf7614e2f8daf8165da3a0677c}\label{class_graph_a476c3edf7614e2f8daf8165da3a0677c}} 
+\index{Graph@{Graph}!removePaths@{removePaths}}
+\index{removePaths@{removePaths}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removePaths()}{removePaths()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Paths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the path variable of all vertices to nullptr. 
+
+Complexity O(\+V) \mbox{\Hypertarget{class_graph_a6b9676f744384d80a3638b0b94f43186}\label{class_graph_a6b9676f744384d80a3638b0b94f43186}} 
+\index{Graph@{Graph}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Graph\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Removes vertex from graph. 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em int} & id of vertex to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_ab83e5bc939a39bae5d49fe88344fb313}\label{class_graph_ab83e5bc939a39bae5d49fe88344fb313}} 
+\index{Graph@{Graph}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Graph\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{std\+::string}]{n }\end{DoxyParamCaption})}
+
+
+
+Removes vertex from graph. 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & name of station in vertex to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a4fbec5683b2c7fae5cb8a585d2f08ac0}\label{class_graph_a4fbec5683b2c7fae5cb8a585d2f08ac0}} 
+\index{Graph@{Graph}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Graph\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+
+
+Removes vertex from graph. 
+
+Complexity O(1) 
+\begin{DoxyParams}{Parameters}
+{\em Vertex$\ast$} & vertex to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a286a309296c8ba03a4edfa0f2310c5a9}\label{class_graph_a286a309296c8ba03a4edfa0f2310c5a9}} 
+\index{Graph@{Graph}!removeVisited@{removeVisited}}
+\index{removeVisited@{removeVisited}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeVisited()}{removeVisited()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the visited variable of all vertices to false. 
+
+Complexity O(\+V) \mbox{\Hypertarget{class_graph_a34bb6d6430355feef32fbb768bb610ac}\label{class_graph_a34bb6d6430355feef32fbb768bb610ac}} 
+\index{Graph@{Graph}!sortTopList@{sortTopList}}
+\index{sortTopList@{sortTopList}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{sortTopList()}{sortTopList()}}
+{\footnotesize\ttfamily void Graph\+::sort\+Top\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sorts the lists of top municipalities and districts, both counting and not counting inter district/municipality travel. 
+
+Complexity O(n $\ast$ log(n)) \begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/data\+\_\+structs/Graph.\+h\item 
+src/data\+\_\+structs/Graph.\+cpp\end{DoxyCompactItemize}

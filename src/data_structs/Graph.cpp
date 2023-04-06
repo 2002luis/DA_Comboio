@@ -11,9 +11,14 @@ Graph::Graph(){
 Graph::Graph(Graph* copy){
     for(auto v : copy->vertexSet){
         this->addVertex(v->s);
+        for(auto e : v->getAdj()) e->setSelected(false);
     }
     for(auto v: copy->vertexSet) for(auto e: v->getAdj()){
-        this->addBidirectionalEdge(e->getOrig()->s.name,e->getDest()->s.name,e->getWeight(),e->getType());
+        if(!e->isSelected()) {
+            this->addBidirectionalEdge(e->getOrig()->s.name, e->getDest()->s.name, e->getWeight(), e->getType());
+            e->setSelected(true);
+            e->getReverse()->setSelected(true);
+        }
     }
 }
 
@@ -122,12 +127,12 @@ Graph::~Graph() {
     deleteMatrix(pathMatrix, vertexSet.size());
 }
 
-void Graph::fordFulkerson(std::string src, std::string dest, bool clear = true){
-    this->fordFulkerson(this->findVertex(src),this->findVertex(dest),clear);
+void Graph::fordFulkerson(std::string src, std::string dest){
+    this->fordFulkerson(this->findVertex(src),this->findVertex(dest));
 }
 
-void Graph::fordFulkerson(Vertex* src, Vertex* dest, bool clear = true){
-    if(clear) this->removeFlow();
+void Graph::fordFulkerson(Vertex* src, Vertex* dest){
+    this->removeFlow();
     this->removePaths();
 
     while(this->dfs(src,dest)) {
@@ -179,12 +184,12 @@ void Graph::removeVisited(){
     for(auto &i : this->vertexSet) i->setVisited(false);
 }
 
-double Graph::maxInPath(std::string src, std::string dest, bool clear = true){
-    return this->maxInPath(this->findVertex(src),this->findVertex(dest), clear);
+double Graph::maxInPath(std::string src, std::string dest){
+    return this->maxInPath(this->findVertex(src),this->findVertex(dest));
 }
 
-double Graph::maxInPath(Vertex *src, Vertex *dest, bool clear = true) {
-    this->fordFulkerson(src,dest,clear);
+double Graph::maxInPath(Vertex *src, Vertex *dest) {
+    this->fordFulkerson(src,dest);
     double out = 0.0;
     for(auto &i : dest->getIncoming()) if(i->getFlow()>0) out+=i->getFlow();
     return out;
@@ -271,12 +276,19 @@ void Graph::removeVertex(int n) {
 std::vector<std::pair<Edge*,int>> Graph::getDiffs(Graph* g, int n){
     std::vector<std::pair<Edge*,int>> tmp;
 
+    for(auto i : g->vertexSet) for (auto e : i->getAdj()) e->setSelected(false);
+    for(auto i : this->vertexSet) for (auto e : i->getAdj()) e->setSelected(false);
+
     for(auto i : g->vertexSet){
         auto j = this->findVertex(i->s.name);
         if(j!= nullptr){
             for(auto e : i->getAdj()){
                 for(auto e2: j->getAdj()){
-                    if(e->getDest() == e2->getDest()){
+                    if(e->getDest()->s.name == e2->getDest()->s.name && !e->isSelected() && !e2->isSelected()){
+                        e->setSelected(true);
+                        e2->setSelected(true);
+                        e->getReverse()->setSelected(true);
+                        e2->getReverse()->setSelected(true);
                         tmp.push_back({e,std::abs(e->getFlow()-e2->getFlow())});
                     }
                 }
@@ -307,9 +319,9 @@ std::pair<int,int> Graph::costOptimization(Vertex* src, Vertex* dest){
     std::pair<int,int> out = {0,0};
 
     dest->setPath(dest->getAdj()[0]);
-
+    int curCap = djikstra(src,dest);
     while(dest->getPath() != nullptr){
-        int curCap = djikstra(src,dest);
+
         auto i = dest;
         while(i->getPath() != nullptr){
             i->getPath()->setFlow(i->getPath()->getFlow()+1);
@@ -317,6 +329,8 @@ std::pair<int,int> Graph::costOptimization(Vertex* src, Vertex* dest){
         }
         out.first++;
         out.second+=curCap;
+
+        curCap = djikstra(src,dest);
     }
     return out;
 }
