@@ -100,7 +100,6 @@ void menu::mainMenu() {
             std::cout << "\nThe maximum number of trains is " << ret << ".\n";
             /*
             4-
-             5- costOptimization (numero de comboios, preço) --> AINDA N TA
             7- criar outro graph igual, queres tirar vertex ou edge? fazer o 3 topico. getDiffs
              */
 
@@ -368,7 +367,8 @@ void menu::mainMenu() {
                             std::cin >> howMany;
                             if (howMany <= 0) break;
                             for (auto i : g2.getDiffs(&g, howMany)) {
-                                std::cout << " - " << i.first << " => " << i.second << "\n";
+                                std::cout << " - " << i.first->getOrig()->s.name << " => " << i.first->getDest()->s.name
+                                          << " (number of edges " << i.second << ").\n";
                                 howMany--;
                                 if (howMany == 0) break;
                             }
