@@ -35,8 +35,8 @@ void menu::back() {
 
 
 
-void menu::error(const std::string &erro) {
-    std::cout << "Error: " << erro << "\n";
+void menu::error(const std::string &error) {
+    std::cout << "Error: " << error << "\n";
 }
 
 
@@ -53,8 +53,10 @@ void menu::mainMenu() {
                  "[3] Where management should assign larger budgets for the purchasing and maintenance of trains.\n"
                  //"[4] The maximum quantity of trains that can simultaneously arrive at a given station.\n"
                  "[5] The maximum number of trains that can simultaneously travel between two stations with minimum cost.\n"
-                 "[6] The maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity.\n"
-                 "[7] Provide a report on the stations that are the most affected by each segment failure.\n"
+
+                 "\n[6] Functions with a new graph:\n"
+                 " - The maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity.\n"
+                 " - Provide a report on the stations that are the most affected by each segment failure.\n"
 
                  "\n[0] Quit.\n"
                  "> ";
@@ -94,13 +96,11 @@ void menu::mainMenu() {
             }
 
             double ret;
-            bool clear = true;
             ret = g.maxInPath(src, dest);
             std::cout << "\nThe maximum number of trains is " << ret << ".\n";
             /*
             4-
              5- costOptimization (numero de comboios, preço) --> AINDA N TA
-             6- criar outro graph igual, queres tirar vertex ou edge? fazer o 1 topico
             7- criar outro graph igual, queres tirar vertex ou edge? fazer o 3 topico. getDiffs
              */
 
@@ -254,12 +254,14 @@ void menu::mainMenu() {
                     std::cout << "\nWhat do you want removed:\n"
                                  "[1] Station\n"
                                  "[2] Edge\n"
+                                 "[3] I don't want to remove\n"
                                  "> ";
 
                     std::string src, dest, name;
                     Station stationSup;
                     int choiceTopic = 0;
                     std::cin >> choiceTopic;
+                    bool sup = false;
                     while (true) {
                         if (choiceTopic == 1) {
                             std::cout << "\nWrite the name of the station:\n"
@@ -296,20 +298,27 @@ void menu::mainMenu() {
                             break;
                         }
                         else if (choiceTopic == 3) {
-                            continue;
+                            sup = true;
+                            break;
                         }
                         std::cout << "> Invalid topic.\n"
                                      "[1] Yes, remove\n"
                                      "[2] No\n"
                                      "> ";
                     }
+                    if (sup) {
+                        removeTopic = 2;
+                    }
                 }
+
                 else if (removeTopic == 2) {
-                    std::cout << "Choose one topic:\n"
+                    std::cout << "\nChoose one topic:\n"
                                  "[1] The maximum amount of trains that can simultaneously travel between two stations.\n"
-                                 "[2] \n"
+                                 "[2] Provide a report on the stations that are the most affected by each segment failure.\n"
+                                 "[3] Go back.\n"
                                  "> ";
                     int choiceTopic = 0;
+                    int howMany = 0;
                     std::cin >> choiceTopic;
                     while (true) {
                         if (choiceTopic == 1) {
@@ -330,18 +339,25 @@ void menu::mainMenu() {
                             }
 
                             double ret;
-                            bool clear = true;
-                            ret = g2.maxInPath(src, dest, clear);
+                            ret = g2.maxInPath(src, dest);
                             std::cout << "\nThe maximum number of trains is " << ret << ".\n";
                             break;
                         }
                         else if (choiceTopic == 2) {
-
+                            std::cout << "\nHow many results?\n"
+                                         "> ";
+                            std::cin >> howMany;
+                            if (howMany <= 0) break;
+                            g2.getDiffs(&g, howMany);
                             break;
+                        }
+                        else if (choiceTopic == 3) {
+                            back();
                         }
                         std::cout << "> Invalid topic.\n"
                                      "[1] The maximum amount of trains that can simultaneously travel between two stations.\n"
-                                     "[2] \n"
+                                     "[2] Provide a report on the stations that are the most affected by each segment failure.\n"
+                                     "[3] Go back.\n"
                                      "> ";
                     }
                 }
@@ -352,8 +368,6 @@ void menu::mainMenu() {
                                  "> ";
                 }
             }
-
-            back();
         }
 
 
@@ -374,7 +388,6 @@ void menu::mainMenu() {
                          "> ";
         }
     }
-
 }
 
 

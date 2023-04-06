@@ -14,7 +14,7 @@
 
 int main(){
 
-    //menu();
+    menu();
     /*
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
@@ -77,7 +77,7 @@ int main(){
 
     std::cout << test;
      */
-
+    /*
     fileReader fR("TestData");
     Graph g2(&fR.g);
 
@@ -91,6 +91,6 @@ int main(){
     std::cout << fR.g << std::endl << g2;
 
     std::cout << fR.g.getDiffs(&g2,10);
-
+    */
     return 0;
 }

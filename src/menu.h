@@ -16,11 +16,28 @@ class menu {
 private:
 
 public:
-    Station userStation;
     menu();
+    /**
+     * @brief Main menu of all the program with all the functionalities
+     *
+     * The flow variables of each edge are changed, and the result can be used by other functions
+     * Complexity O()
+     */
     void mainMenu();
+    /**
+     * @brief Function to return to the main menu
+     *
+     * The flow variables of each edge are changed, and the result can be used by other functions
+     * Complexity O()
+     */
     void back();
-    static void error(const std::string &s);
+    /**
+     * @brief Function for printing errors
+     *
+     * Complexity O(1)
+     * @param std::string error name
+     */
+    void error(const std::string &s);
     Graph g;
 };
 
