@@ -1,0 +1,114 @@
+\hypertarget{classfile_reader}{}\doxysection{file\+Reader Class Reference}
+\label{classfile_reader}\index{fileReader@{fileReader}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfile_reader_a610a97b59032ef0f4d96c3a92a9519d4}{file\+Reader}} (std\+::string dir)
+\begin{DoxyCompactList}\small\item\em Reads the contents of the files in the directory ../dir into the variable g. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classfile_reader_acdd0a47e56bb1dbb9b8f85806b1c374b}{format\+Str}} (std\+::string in)
+\begin{DoxyCompactList}\small\item\em Formats the string into an easier to process form. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classfile_reader_aa244f2209be3aa738e186615f2123eeb}{unformat\+Str}} (std\+::string in)
+\begin{DoxyCompactList}\small\item\em Formats the string back into normal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfile_reader_a6507ba36b7a862b1d00b09052a16790b}{read\+Stations}} (std\+::string dir)
+\begin{DoxyCompactList}\small\item\em Reads the stations (vertices) in ../dir/stations.csv and saves them in g. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfile_reader_ad7d691d426bb68183a27ff3020ed6b55}{read\+Network}} (std\+::string dir)
+\begin{DoxyCompactList}\small\item\em Reads the network (edges) in ../dir/network.csv and saves it in g. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classfile_reader_a3d0b21452d7552addaf2e4291a425b65}\label{classfile_reader_a3d0b21452d7552addaf2e4291a425b65}} 
+\mbox{\hyperlink{class_graph}{Graph}} {\bfseries g}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfile_reader_a610a97b59032ef0f4d96c3a92a9519d4}\label{classfile_reader_a610a97b59032ef0f4d96c3a92a9519d4}} 
+\index{fileReader@{fileReader}!fileReader@{fileReader}}
+\index{fileReader@{fileReader}!fileReader@{fileReader}}
+\doxysubsubsection{\texorpdfstring{fileReader()}{fileReader()}}
+{\footnotesize\ttfamily file\+Reader\+::file\+Reader (\begin{DoxyParamCaption}\item[{std\+::string}]{dir }\end{DoxyParamCaption})}
+
+
+
+Reads the contents of the files in the directory ../dir into the variable g. 
+
+Complexity O(\+N) 
+\begin{DoxyParams}{Parameters}
+{\em dir} & the directory to be read (if left empty, reads \char`\"{}\+Project1\+Data\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfile_reader_acdd0a47e56bb1dbb9b8f85806b1c374b}\label{classfile_reader_acdd0a47e56bb1dbb9b8f85806b1c374b}} 
+\index{fileReader@{fileReader}!formatStr@{formatStr}}
+\index{formatStr@{formatStr}!fileReader@{fileReader}}
+\doxysubsubsection{\texorpdfstring{formatStr()}{formatStr()}}
+{\footnotesize\ttfamily std\+::string file\+Reader\+::format\+Str (\begin{DoxyParamCaption}\item[{std\+::string}]{in }\end{DoxyParamCaption})}
+
+
+
+Formats the string into an easier to process form. 
+
+Complexity O(\+N) 
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be processed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The processed string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classfile_reader_ad7d691d426bb68183a27ff3020ed6b55}\label{classfile_reader_ad7d691d426bb68183a27ff3020ed6b55}} 
+\index{fileReader@{fileReader}!readNetwork@{readNetwork}}
+\index{readNetwork@{readNetwork}!fileReader@{fileReader}}
+\doxysubsubsection{\texorpdfstring{readNetwork()}{readNetwork()}}
+{\footnotesize\ttfamily void file\+Reader\+::read\+Network (\begin{DoxyParamCaption}\item[{std\+::string}]{dir }\end{DoxyParamCaption})}
+
+
+
+Reads the network (edges) in ../dir/network.csv and saves it in g. 
+
+Complexity O(\+N) 
+\begin{DoxyParams}{Parameters}
+{\em str} & The directory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfile_reader_a6507ba36b7a862b1d00b09052a16790b}\label{classfile_reader_a6507ba36b7a862b1d00b09052a16790b}} 
+\index{fileReader@{fileReader}!readStations@{readStations}}
+\index{readStations@{readStations}!fileReader@{fileReader}}
+\doxysubsubsection{\texorpdfstring{readStations()}{readStations()}}
+{\footnotesize\ttfamily void file\+Reader\+::read\+Stations (\begin{DoxyParamCaption}\item[{std\+::string}]{dir }\end{DoxyParamCaption})}
+
+
+
+Reads the stations (vertices) in ../dir/stations.csv and saves them in g. 
+
+Complexity O(\+N) 
+\begin{DoxyParams}{Parameters}
+{\em str} & The directory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfile_reader_aa244f2209be3aa738e186615f2123eeb}\label{classfile_reader_aa244f2209be3aa738e186615f2123eeb}} 
+\index{fileReader@{fileReader}!unformatStr@{unformatStr}}
+\index{unformatStr@{unformatStr}!fileReader@{fileReader}}
+\doxysubsubsection{\texorpdfstring{unformatStr()}{unformatStr()}}
+{\footnotesize\ttfamily std\+::string file\+Reader\+::unformat\+Str (\begin{DoxyParamCaption}\item[{std\+::string}]{in }\end{DoxyParamCaption})}
+
+
+
+Formats the string back into normal. 
+
+Complexity O(\+N) 
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be processed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The processed string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/file\+Reader.\+h\item 
+src/file\+Reader.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,197 @@
+\hypertarget{class_edge}{}\doxysection{Edge Class Reference}
+\label{class_edge}\index{Edge@{Edge}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_edge_a49a4ee43162c0c4a396e2db64aeca072}\label{class_edge_a49a4ee43162c0c4a396e2db64aeca072}} 
+{\bfseries Edge} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$orig, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$dest, double w, std\+::string type)
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_edge_a5cda44e9ba257b03963a1ac301371a59}{get\+Dest}} () const
+\begin{DoxyCompactList}\small\item\em Returns destination vertex Complexity O(1) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_edge_a1caaffca117bab3ff5b7387623a356f8}{get\+Weight}} () const
+\begin{DoxyCompactList}\small\item\em Returns the capacity of the edge Complexity O(1) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_edge_a52967cf488bb7185a512cd111420215d}{is\+Selected}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether edge is selected or not Complexity O(1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_edge_a6e8b08e91c0694b40edff0432fb612eb}{get\+Orig}} () const
+\begin{DoxyCompactList}\small\item\em Returns the origin vertex Complexity O(1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{Edge}} $\ast$ \mbox{\hyperlink{class_edge_a756d2d246aa5445d0f396626c7d4fd56}{get\+Reverse}} () const
+\begin{DoxyCompactList}\small\item\em Returns the opposite edge (from dest to origin) Complexity O(1) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_edge_a30ff9f3127097db8dce20f5e8b15e6dc}{get\+Flow}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current flow in the edge Complexity O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_edge_a59290cd8120e19c83afe9e9d595a06ff}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Returns the type of the edge (\char`\"{}\+STANDARD\char`\"{} or other) Complexity O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a8ab1cf2fe7fd16152d1dba3822853894}{set\+Selected}} (bool selected)
+\begin{DoxyCompactList}\small\item\em Sets whether edge is selected or not Complexity O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a64881280015bd83702fe3b2c6234b7e5}{set\+Reverse}} (\mbox{\hyperlink{class_edge}{Edge}} $\ast$reverse)
+\begin{DoxyCompactList}\small\item\em Sets the opposite edge Complexity O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a788cfe1f98772af4e7bbfe6310d0ccaa}{set\+Flow}} (double flow)
+\begin{DoxyCompactList}\small\item\em Sets the current flow Complexity O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_edge_a50339c1a85710ca827d4e3865727ffd7}\label{class_edge_a50339c1a85710ca827d4e3865727ffd7}} 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ {\bfseries dest}
+\item 
+\mbox{\Hypertarget{class_edge_a6d0148402e635354c03a151c77fcbdd8}\label{class_edge_a6d0148402e635354c03a151c77fcbdd8}} 
+double {\bfseries weight}
+\item 
+\mbox{\Hypertarget{class_edge_a3af6d278c4ddcb2589e1aa66e52f4efb}\label{class_edge_a3af6d278c4ddcb2589e1aa66e52f4efb}} 
+bool {\bfseries selected} = false
+\item 
+\mbox{\Hypertarget{class_edge_a48f1521d20ead8492fd1d184656862f5}\label{class_edge_a48f1521d20ead8492fd1d184656862f5}} 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ {\bfseries orig}
+\item 
+\mbox{\Hypertarget{class_edge_abcadfaa8985d0d593a124d0fea39130a}\label{class_edge_abcadfaa8985d0d593a124d0fea39130a}} 
+\mbox{\hyperlink{class_edge}{Edge}} $\ast$ {\bfseries reverse} = nullptr
+\item 
+\mbox{\Hypertarget{class_edge_adbe59333b5a49cbb85b39ce1272e6098}\label{class_edge_adbe59333b5a49cbb85b39ce1272e6098}} 
+double {\bfseries flow}
+\item 
+\mbox{\Hypertarget{class_edge_acbf328acf04934d4a7a7549e55b50ef0}\label{class_edge_acbf328acf04934d4a7a7549e55b50ef0}} 
+std\+::string {\bfseries type}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_edge_a5cda44e9ba257b03963a1ac301371a59}\label{class_edge_a5cda44e9ba257b03963a1ac301371a59}} 
+\index{Edge@{Edge}!getDest@{getDest}}
+\index{getDest@{getDest}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getDest()}{getDest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Edge\+::get\+Dest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns destination vertex Complexity O(1) 
+
+\begin{DoxyReturn}{Returns}
+Vertex$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a30ff9f3127097db8dce20f5e8b15e6dc}\label{class_edge_a30ff9f3127097db8dce20f5e8b15e6dc}} 
+\index{Edge@{Edge}!getFlow@{getFlow}}
+\index{getFlow@{getFlow}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getFlow()}{getFlow()}}
+{\footnotesize\ttfamily double Edge\+::get\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the current flow in the edge Complexity O(1) 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a6e8b08e91c0694b40edff0432fb612eb}\label{class_edge_a6e8b08e91c0694b40edff0432fb612eb}} 
+\index{Edge@{Edge}!getOrig@{getOrig}}
+\index{getOrig@{getOrig}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getOrig()}{getOrig()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Edge\+::get\+Orig (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the origin vertex Complexity O(1) 
+
+\begin{DoxyReturn}{Returns}
+Vertex$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a756d2d246aa5445d0f396626c7d4fd56}\label{class_edge_a756d2d246aa5445d0f396626c7d4fd56}} 
+\index{Edge@{Edge}!getReverse@{getReverse}}
+\index{getReverse@{getReverse}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getReverse()}{getReverse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{Edge}} $\ast$ Edge\+::get\+Reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the opposite edge (from dest to origin) Complexity O(1) 
+
+\begin{DoxyReturn}{Returns}
+Edge$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a59290cd8120e19c83afe9e9d595a06ff}\label{class_edge_a59290cd8120e19c83afe9e9d595a06ff}} 
+\index{Edge@{Edge}!getType@{getType}}
+\index{getType@{getType}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Edge\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the type of the edge (\char`\"{}\+STANDARD\char`\"{} or other) Complexity O(1) 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a1caaffca117bab3ff5b7387623a356f8}\label{class_edge_a1caaffca117bab3ff5b7387623a356f8}} 
+\index{Edge@{Edge}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily double Edge\+::get\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the capacity of the edge Complexity O(1) 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a52967cf488bb7185a512cd111420215d}\label{class_edge_a52967cf488bb7185a512cd111420215d}} 
+\index{Edge@{Edge}!isSelected@{isSelected}}
+\index{isSelected@{isSelected}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{isSelected()}{isSelected()}}
+{\footnotesize\ttfamily bool Edge\+::is\+Selected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether edge is selected or not Complexity O(1) 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a788cfe1f98772af4e7bbfe6310d0ccaa}\label{class_edge_a788cfe1f98772af4e7bbfe6310d0ccaa}} 
+\index{Edge@{Edge}!setFlow@{setFlow}}
+\index{setFlow@{setFlow}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{setFlow()}{setFlow()}}
+{\footnotesize\ttfamily void Edge\+::set\+Flow (\begin{DoxyParamCaption}\item[{double}]{flow }\end{DoxyParamCaption})}
+
+
+
+Sets the current flow Complexity O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_edge_a64881280015bd83702fe3b2c6234b7e5}\label{class_edge_a64881280015bd83702fe3b2c6234b7e5}} 
+\index{Edge@{Edge}!setReverse@{setReverse}}
+\index{setReverse@{setReverse}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{setReverse()}{setReverse()}}
+{\footnotesize\ttfamily void Edge\+::set\+Reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{reverse }\end{DoxyParamCaption})}
+
+
+
+Sets the opposite edge Complexity O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edge$\ast$} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_edge_a8ab1cf2fe7fd16152d1dba3822853894}\label{class_edge_a8ab1cf2fe7fd16152d1dba3822853894}} 
+\index{Edge@{Edge}!setSelected@{setSelected}}
+\index{setSelected@{setSelected}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{setSelected()}{setSelected()}}
+{\footnotesize\ttfamily void Edge\+::set\+Selected (\begin{DoxyParamCaption}\item[{bool}]{selected }\end{DoxyParamCaption})}
+
+
+
+Sets whether edge is selected or not Complexity O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/data\+\_\+structs/Vertex\+Edge.\+h\item 
+src/data\+\_\+structs/Vertex\+Edge.\+cpp\end{DoxyCompactItemize}
