@@ -35,7 +35,7 @@ public:
      * Complexity O(1)
      * @param std::string error name
      */
-    void error(const std::string &s);
+    static void error(const std::string &s);
     Graph g;
 };
 

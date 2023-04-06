@@ -13,8 +13,18 @@
 #include "menu.h"
 
 int main(){
+    try {
+        menu();
+    }
+    catch (std::ios_base::failure &fail) {
+        menu::error(fail.what());
+        return 1;
+    }
+    catch (std::exception &ex) {
+        menu::error(ex.what());
+        return 1;
+    }
 
-    menu();
     /*
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
