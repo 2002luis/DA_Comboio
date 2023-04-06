@@ -233,7 +233,25 @@ void menu::mainMenu() {
 
         //the maximum number of trains that can simultaneously travel between two stations with minimum cost
         else if (topicMenu == 5) {
+            std::cout << "\nWrite the name of two stations:\n"
+                         "> ";
+            std::string src, dest;
+            std::cin >> src;
+            std::cout << "> ";
+            std::cin >> dest;
 
+            while (!(g.findVertex(src) && g.findVertex(dest))) {
+                std::cout << "\nInvalid stations.\n";
+                std::cout << "\nWrite the name of two stations:\n"
+                             "> ";
+                std::cin >> src;
+                std::cout << "> ";
+                std::cin >> dest;
+            }
+
+            std::pair<int,int> ret = g.costOptimization(src, dest);
+            std::cout << "\nThe cost of the trip is " << ret.second <<
+                         ", (you will use " << ret.first << " trains).\n";
 
             back();
         }
