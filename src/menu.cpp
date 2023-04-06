@@ -241,7 +241,7 @@ void menu::mainMenu() {
 
         //the maximum quantity of trains that can simultaneously travel between two stations in a network of reduced connectivity
         else if (topicMenu == 6) {
-            Graph g2(g);
+            Graph g2(&g);
             std::cout << "\nDo you want to remove something:\n"
                          "[1] Yes, remove\n"
                          "[2] No\n"
@@ -295,23 +295,44 @@ void menu::mainMenu() {
                             g2.removeEdge(src, dest);
                             break;
                         }
+                        else if (choiceTopic == 3) {
+                            continue;
+                        }
                         std::cout << "> Invalid topic.\n"
                                      "[1] Yes, remove\n"
                                      "[2] No\n"
                                      "> ";
                     }
-                    break;
                 }
                 else if (removeTopic == 2) {
-                    std::cout << "topic 4.1 or 4.2?\n"
-                                 "[1] \n"
+                    std::cout << "Choose one topic:\n"
+                                 "[1] The maximum amount of trains that can simultaneously travel between two stations.\n"
                                  "[2] \n"
                                  "> ";
                     int choiceTopic = 0;
                     std::cin >> choiceTopic;
                     while (true) {
                         if (choiceTopic == 1) {
+                            std::cout << "\nWrite the name of two stations:\n"
+                                         "> ";
+                            std::string src, dest;
+                            std::cin >> src;
+                            std::cout << "> ";
+                            std::cin >> dest;
 
+                            while (!(g2.findVertex(src) && g2.findVertex(dest))) {
+                                std::cout << "\nInvalid stations.\n";
+                                std::cout << "\nWrite the name of two stations:\n"
+                                             "> ";
+                                std::cin >> src;
+                                std::cout << "> ";
+                                std::cin >> dest;
+                            }
+
+                            double ret;
+                            bool clear = true;
+                            ret = g2.maxInPath(src, dest, clear);
+                            std::cout << "\nThe maximum number of trains is " << ret << ".\n";
                             break;
                         }
                         else if (choiceTopic == 2) {
@@ -319,7 +340,7 @@ void menu::mainMenu() {
                             break;
                         }
                         std::cout << "> Invalid topic.\n"
-                                     "[1] \n"
+                                     "[1] The maximum amount of trains that can simultaneously travel between two stations.\n"
                                      "[2] \n"
                                      "> ";
                     }
