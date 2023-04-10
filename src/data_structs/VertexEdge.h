@@ -119,11 +119,7 @@ public:
      * @param std::string the type (either "STANDARD" or other)
      */
     Edge * addEdge(Vertex *dest, double w, std::string type);
-    /**
-     * @brief removes an edge
-     * Complexity O(N)
-     * @param int the id of the edge to be removed
-     */
+
 
     /**
      * @brief finds whether there is an edge with destination on station dest
@@ -132,8 +128,18 @@ public:
      * @return bool true if found, false if not
      */
     bool findAdj(std::string dest);
+    /**
+     * @brief removes an edge
+     * Complexity O(N)
+     * @param int the id of the edge to be removed
+     */
     bool removeEdge(int destID);
-
+    /**
+     * @brief deletes an edge
+     * Complexity O(1)
+     * @param Edge* the edge to be removed
+     */
+    void deleteEdge(Edge *edge);
 protected:
 
     int id;                // identifier

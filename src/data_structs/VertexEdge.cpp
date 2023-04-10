@@ -31,19 +31,36 @@ Edge * Vertex::addEdge(Vertex *d, double w, std::string type) {
  * Returns true if successful, and false if such edge does not exist.
  */
 bool Vertex::removeEdge(int destID) {
-    Edge *edgToRemove;
-    int toRemove = 0;
-    for(unsigned long int i = 0; i < this->getAdj().size(); i++){
-        Edge *edge = this->getAdj()[i];
+    bool removedEdge = false;
+    auto it = adj.begin();
+    while (it != adj.end()) {
+        Edge *edge = *it;
         Vertex *dest = edge->getDest();
         if (dest->getId() == destID) {
-            toRemove = i;
-            edgToRemove = edge;
+            it = adj.erase(it);
+            deleteEdge(edge);
+            removedEdge = true; // allows for multiple edges to connect the same pair of vertices (multigraph)
+        }
+        else {
+            it++;
         }
     }
-    delete edgToRemove;
-    adj.erase(adj.begin()+toRemove,adj.begin()+toRemove+1);
-    return true;
+    return removedEdge;
+}
+
+void Vertex::deleteEdge(Edge *edge) {
+    Vertex *dest = edge->getDest();
+    // Remove the corresponding edge from the incoming list
+    auto it = dest->incoming.begin();
+    while (it != dest->incoming.end()) {
+        if ((*it)->getOrig()->getId() == id) {
+            it = dest->incoming.erase(it);
+        }
+        else {
+            it++;
+        }
+    }
+    delete edge;
 }
 
 bool Vertex::operator<(Vertex & vertex) const {

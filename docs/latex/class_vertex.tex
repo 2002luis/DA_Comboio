@@ -39,8 +39,12 @@ void \mbox{\hyperlink{class_vertex_abe4bc30005eec65e775d0cd51f456460}{set\+Path}
 \begin{DoxyCompactList}\small\item\em sets path Complexity O(1) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_edge}{Edge}} $\ast$ \mbox{\hyperlink{class_vertex_a4a55f70450db96de90582e62fa4c1e3f}{add\+Edge}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$dest, double w, std\+::string type)
 \begin{DoxyCompactList}\small\item\em adds edge Complexity O(1) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vertex_a83659baa99ec65bc10d2a9cb127dac4f}{find\+Adj}} (std\+::string dest)
+\begin{DoxyCompactList}\small\item\em finds whether there is an edge with destination on station dest Complexity O(\+N) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_vertex_a10c6827225205dc4ad070914ebfa26e7}{remove\+Edge}} (int dest\+ID)
-\begin{DoxyCompactList}\small\item\em removes an edge Complexity O(\+N) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em removes an edge Complexity O(\+N) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_ac2a80daa5a6a208173f55d4d161334f1}{delete\+Edge}} (\mbox{\hyperlink{class_edge}{Edge}} $\ast$edge)
+\begin{DoxyCompactList}\small\item\em deletes an edge Complexity O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -99,6 +103,39 @@ adds edge Complexity O(1)
 {\em std\+::string} & the type (either \char`\"{}\+STANDARD\char`\"{} or other) \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_vertex_ac2a80daa5a6a208173f55d4d161334f1}\label{class_vertex_ac2a80daa5a6a208173f55d4d161334f1}} 
+\index{Vertex@{Vertex}!deleteEdge@{deleteEdge}}
+\index{deleteEdge@{deleteEdge}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{deleteEdge()}{deleteEdge()}}
+{\footnotesize\ttfamily void Vertex\+::delete\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{edge }\end{DoxyParamCaption})}
+
+
+
+deletes an edge Complexity O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edge$\ast$} & the edge to be removed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vertex_a83659baa99ec65bc10d2a9cb127dac4f}\label{class_vertex_a83659baa99ec65bc10d2a9cb127dac4f}} 
+\index{Vertex@{Vertex}!findAdj@{findAdj}}
+\index{findAdj@{findAdj}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{findAdj()}{findAdj()}}
+{\footnotesize\ttfamily bool Vertex\+::find\+Adj (\begin{DoxyParamCaption}\item[{std\+::string}]{dest }\end{DoxyParamCaption})}
+
+
+
+finds whether there is an edge with destination on station dest Complexity O(\+N) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & the name of the station to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if found, false if not 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_vertex_abb430e413ce9430fedd322af73955a6e}\label{class_vertex_abb430e413ce9430fedd322af73955a6e}} 
 \index{Vertex@{Vertex}!getAdj@{getAdj}}
 \index{getAdj@{getAdj}!Vertex@{Vertex}}

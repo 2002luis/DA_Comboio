@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['maxinpath_0',['maxInPath',['../class_graph.html#a7a6fea25b73de6a52c801c7f3a00816e',1,'Graph::maxInPath(std::string src, std::string dest)'],['../class_graph.html#a1c6686b12a4c31c93d0195922344a4e4',1,'Graph::maxInPath(Vertex *src, Vertex *dest)']]],
-  ['maxpairs_1',['maxPairs',['../class_graph.html#a327333bed76aa8ccba50d5db41a5d3fe',1,'Graph']]],
-  ['menu_2',['menu',['../classmenu.html',1,'']]]
+  ['isprocesssing_0',['isProcesssing',['../class_vertex.html#a56f3b902209da17ef0770a4734d41ab3',1,'Vertex']]],
+  ['isselected_1',['isSelected',['../class_edge.html#a52967cf488bb7185a512cd111420215d',1,'Edge']]],
+  ['isvisited_2',['isVisited',['../class_vertex.html#aa4bd82105b85ee53a917391f4811cd8a',1,'Vertex']]]
 ];

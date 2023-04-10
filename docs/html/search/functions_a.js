@@ -10,5 +10,5 @@ var searchData=
   ['setselected_7',['setSelected',['../class_edge.html#a8ab1cf2fe7fd16152d1dba3822853894',1,'Edge']]],
   ['setvisited_8',['setVisited',['../class_vertex.html#a15eeabbbb6d517af746ae137c6d5b595',1,'Vertex']]],
   ['sorttoplist_9',['sortTopList',['../class_graph.html#a34bb6d6430355feef32fbb768bb610ac',1,'Graph']]],
-  ['station_10',['Station',['../class_station.html',1,'Station'],['../class_station.html#ab7f34f62cb4075fd88400a5678300a14',1,'Station::Station(std::string name, std::string district, std::string municipality, std::string township, std::string line)'],['../class_station.html#a0cbc2a0d3b31de7a616671b573e6cb53',1,'Station::Station(std::string n)']]]
+  ['station_10',['Station',['../class_station.html#ab7f34f62cb4075fd88400a5678300a14',1,'Station::Station(std::string name, std::string district, std::string municipality, std::string township, std::string line)'],['../class_station.html#a0cbc2a0d3b31de7a616671b573e6cb53',1,'Station::Station(std::string n)']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DAComboio: Vertex Class Reference</title>
+<title>DA_Comboio: Vertex Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">DAComboio
+   <div id="projectname">DA_Comboio
    </div>
   </td>
  </tr>
@@ -131,9 +131,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (<a 
 <tr class="memitem:a4a55f70450db96de90582e62fa4c1e3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a4a55f70450db96de90582e62fa4c1e3f">addEdge</a> (<a class="el" href="class_vertex.html">Vertex</a> *dest, double w, std::string type)</td></tr>
 <tr class="memdesc:a4a55f70450db96de90582e62fa4c1e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds edge Complexity O(1)  <a href="class_vertex.html#a4a55f70450db96de90582e62fa4c1e3f">More...</a><br /></td></tr>
 <tr class="separator:a4a55f70450db96de90582e62fa4c1e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83659baa99ec65bc10d2a9cb127dac4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a83659baa99ec65bc10d2a9cb127dac4f">findAdj</a> (std::string dest)</td></tr>
+<tr class="memdesc:a83659baa99ec65bc10d2a9cb127dac4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">finds whether there is an edge with destination on station dest Complexity O(N)  <a href="class_vertex.html#a83659baa99ec65bc10d2a9cb127dac4f">More...</a><br /></td></tr>
+<tr class="separator:a83659baa99ec65bc10d2a9cb127dac4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10c6827225205dc4ad070914ebfa26e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a10c6827225205dc4ad070914ebfa26e7">removeEdge</a> (int destID)</td></tr>
 <tr class="memdesc:a10c6827225205dc4ad070914ebfa26e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes an edge Complexity O(N)  <a href="class_vertex.html#a10c6827225205dc4ad070914ebfa26e7">More...</a><br /></td></tr>
 <tr class="separator:a10c6827225205dc4ad070914ebfa26e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a80daa5a6a208173f55d4d161334f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#ac2a80daa5a6a208173f55d4d161334f1">deleteEdge</a> (<a class="el" href="class_edge.html">Edge</a> *edge)</td></tr>
+<tr class="memdesc:ac2a80daa5a6a208173f55d4d161334f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">deletes an edge Complexity O(1)  <a href="class_vertex.html#ac2a80daa5a6a208173f55d4d161334f1">More...</a><br /></td></tr>
+<tr class="separator:ac2a80daa5a6a208173f55d4d161334f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -213,6 +219,59 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>queueIndex</b> = 0</td
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac2a80daa5a6a208173f55d4d161334f1" name="ac2a80daa5a6a208173f55d4d161334f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a80daa5a6a208173f55d4d161334f1">&#9670;&#160;</a></span>deleteEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::deleteEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_edge.html">Edge</a> *&#160;</td>
+          <td class="paramname"><em>edge</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>deletes an edge Complexity O(1) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Edge*</td><td>the edge to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a83659baa99ec65bc10d2a9cb127dac4f" name="a83659baa99ec65bc10d2a9cb127dac4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83659baa99ec65bc10d2a9cb127dac4f">&#9670;&#160;</a></span>findAdj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Vertex::findAdj </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>dest</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>finds whether there is an edge with destination on station dest Complexity O(N) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">std::string</td><td>the name of the station to be found </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool true if found, false if not </dd></dl>
 
 </div>
 </div>

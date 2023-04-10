@@ -13,7 +13,7 @@
 #include "menu.h"
 
 int main(){
-    try {
+    /*try {
         menu();
     }
     catch (std::ios_base::failure &fail) {
@@ -24,7 +24,7 @@ int main(){
         menu::error(ex.what());
         return 1;
     }
-
+    /*
     /*
     Station s1("1"), s2("2");
     Station s3("3"), s4("4");
@@ -87,14 +87,14 @@ int main(){
 
     std::cout << test;
      */
-    /*
+
     fileReader fR("TestData");
     Graph g2(&fR.g);
 
-    g2.removeVertex("s3");
+    g2.removeEdge("s2","s3");
 
     std::cout << fR.g << std::endl << g2 << std::endl;
-
+    /*
     fR.g.maxInPath("s1","s6");
     g2.maxInPath("s1","s6");
 
