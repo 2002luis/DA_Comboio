@@ -226,7 +226,7 @@ std::vector<std::pair<Vertex*,Vertex*>> Graph::maxPairs(){
     std::vector<std::pair<Vertex*,Vertex*>> out;
 
     for(unsigned long int i = 0; i < this->vertexSet.size(); i++) for(int j = i+1; j < this->vertexSet.size(); j++){
-        if(i!=j){
+
             double cur = this->maxInPath(this->vertexSet[i],this->vertexSet[j]);
             if(cur > n){
                 n = cur;
@@ -236,7 +236,7 @@ std::vector<std::pair<Vertex*,Vertex*>> Graph::maxPairs(){
             else if(cur == n){
                 out.push_back({this->vertexSet[i],this->vertexSet[j]});
             }
-        }
+
     }
 
     return out;

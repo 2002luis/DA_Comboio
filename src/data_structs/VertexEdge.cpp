@@ -19,6 +19,7 @@ std::string Edge::getType() const{
  */
 Edge * Vertex::addEdge(Vertex *d, double w, std::string type) {
     auto newEdge = new Edge(this, d, w, type);
+    newEdge->setFlow(0);
     adj.push_back(newEdge);
     d->incoming.push_back(newEdge);
     return newEdge;
