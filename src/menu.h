@@ -21,19 +21,19 @@ public:
     /**
      * @brief Main menu of all the program with all the functionalities
      *
-     * Complexity O(1)
+     *
      */
     void mainMenu();
     /**
      * @brief Function to return to the main menu
      *
-     * Complexity O(1)
+     *
      */
     void back();
     /**
      * @brief Function for printing errors
      *
-     * Complexity O(1)
+     *
      * @param std::string error name
      */
     static void error(const std::string &s);
