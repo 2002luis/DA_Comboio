@@ -94,13 +94,14 @@ void menu::mainMenu() {
                 std::cin >> dest;
             }
 
-            double ret;
-            ret = g.maxInPath(src, dest);
-            std::cout << "\nThe maximum number of trains is " << ret << ".\n";
-            /*
-            4-
-            7- criar outro graph igual, queres tirar vertex ou edge? fazer o 3 topico. getDiffs
-             */
+            g.removePaths();
+            g.removeFlow();
+            if(!g.dfs(src,dest)) std::cout << std::endl << "These stations are not connected." << std::endl;
+            else {
+                double ret;
+                ret = g.maxInPath(src, dest);
+                std::cout << "\nThe maximum number of trains is " << ret << ".\n";
+            }
 
             back();
         }
@@ -116,6 +117,8 @@ void menu::mainMenu() {
                 std::cout << " - " << i.first->s.name << " => " << i.second->s.name << "\n";
             }
 
+            std::cout << "The maximum flow in all these stations is " << g.maxInPath(ret[0].first->s.name,ret[0].second->s.name) << " trains.";
+
             back();
         }
 
@@ -125,10 +128,10 @@ void menu::mainMenu() {
             g.sortTopList();
 
             std::cout << "\nChoose one topic:\n"
-                         "[1] Districts\n"
-                         "[2] Municipalities\n"
-                         "[3] Different districts\n"
-                         "[4] Different municipalities\n"
+                         "[1] Districts (counting interdistrict travel)\n"
+                         "[2] Municipalities (counting interdistrict travel)\n"
+                         "[3] Districts (not counting interdistrict travel)\n"
+                         "[4] Municipalities (not counting interdistrict travel)\n"
                          "> ";
 
             int howMany = 0;
@@ -239,10 +242,16 @@ void menu::mainMenu() {
                 std::cin >> dest;
             }
 
-            std::pair<int,int> ret = g.costOptimization(src, dest);
-            std::cout << "\nThe cost of the trip is " << ret.second <<
-                         ", (you will use " << ret.first << " trains).\n";
-
+            g.removeFlow();
+            g.removePaths();
+            if(!g.dfs(src,dest)){
+                std::cout << "These stations are not connected." << std::endl;
+            }
+            else {
+                std::pair<int, int> ret = g.costOptimization(src, dest);
+                std::cout << "\nThe cost of the trip is " << ret.second <<
+                          ", (you will use " << ret.first << " trains).\n";
+            }
             back();
         }
 
@@ -294,8 +303,9 @@ void menu::mainMenu() {
                             std::cout << "> ";
                             std::cin >> dest;
 
-                            while (!(g2.findVertex(src) && g2.findVertex(dest))) {
-                                std::cout << "\nInvalid stations.\n";
+                            while (!(g2.findVertex(src) && g2.findVertex(dest) && g2.findVertex(src)->findAdj(dest))) {
+                                if(!(g2.findVertex(src) && g2.findVertex(dest))) std::cout << "\nInvalid stations.\n";
+                                else std::cout << std::endl << "These stations are not connected" << std::endl;
                                 std::cout << "\nWrite the name of two stations:\n"
                                              "> ";
                                 std::cin >> src;
@@ -338,7 +348,7 @@ void menu::mainMenu() {
                             std::cout << "> ";
                             std::cin >> dest;
 
-                            while (!(g2.findVertex(src) && g2.findVertex(dest))) {
+                            while (!(g2.findVertex(src) && g2.findVertex(dest)) ) {
                                 std::cout << "\nInvalid stations.\n";
                                 std::cout << "\nWrite the name of two stations:\n"
                                              "> ";
@@ -347,9 +357,14 @@ void menu::mainMenu() {
                                 std::cin >> dest;
                             }
 
-                            double ret;
-                            ret = g2.maxInPath(src, dest);
-                            std::cout << "\nThe maximum number of trains is " << ret << ".\n";
+                            g2.removePaths();
+                            g2.removeFlow();
+                            if(!g2.dfs(src,dest)) std::cout << std::endl << "These stations are not connected." << std::endl;
+                            else {
+                                double ret;
+                                ret = g2.maxInPath(src, dest);
+                                std::cout << "\nThe maximum number of trains is " << ret << ".\n";
+                            }
                             break;
                         }
                         else if (choiceTopic == 2) {
@@ -361,7 +376,7 @@ void menu::mainMenu() {
                                 g.fordFulkerson(i.first->getOrig()->s.name, i.first->getDest()->s.name);
                                 g2.fordFulkerson(i.first->getOrig()->s.name, i.first->getDest()->s.name);
                                 std::cout << " - " << i.first->getOrig()->s.name << " => " << i.first->getDest()->s.name
-                                          << " (number of edges " << i.second << ").\n";
+                                          << " (changed by " << i.second << ").\n";
                                 howMany--;
                                 if (howMany == 0) break;
                             }
@@ -386,6 +401,7 @@ void menu::mainMenu() {
             }
         }
 
+        else if (topicMenu == 6) std::cout << g << std::endl;
 
         //quit the program
         else if (topicMenu == 0) exit(0);
@@ -426,7 +442,7 @@ menu::menu() {
             break;
         }
         else if (choiceTopic == 2) {
-            fileReader fr("Project1Data");
+            fileReader fr("TestData");
             g = fr.g;
             break;
         }

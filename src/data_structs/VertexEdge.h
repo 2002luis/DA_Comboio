@@ -124,6 +124,14 @@ public:
      * Complexity O(N)
      * @param int the id of the edge to be removed
      */
+
+    /**
+     * @brief finds whether there is an edge with destination on station dest
+     * Complexity O(N)
+     * @param std::string the name of the station to be found
+     * @return bool true if found, false if not
+     */
+    bool findAdj(std::string dest);
     bool removeEdge(int destID);
 
 protected:

@@ -105,6 +105,13 @@ void Vertex::setPath(Edge *path) {
     this->path = path;
 }
 
+bool Vertex::findAdj(std::string dest){
+    for(auto i : this->adj){
+        if(i->getDest()->s.name==dest) return true;
+    }
+    return false;
+}
+
 /********************** Edge  ****************************/
 
 Edge::Edge(Vertex *orig, Vertex *dest, double w, std::string t): orig(orig), dest(dest), weight(w) , type(t){}
