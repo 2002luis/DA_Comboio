@@ -401,8 +401,43 @@ void menu::mainMenu() {
 
 
 menu::menu() {
-    fileReader fr("Project1Data");
-    g = fr.g;
+    std::cout << "\nChoose one topic:\n"
+                 "[1] Real data.\n"
+                 "[2] Test data.\n"
+                 "> ";
+
+    int choiceTopic = 0;
+    std::string stri;
+    while (true) {
+        choiceTopic = 0;
+        stri = "";
+        std::cin >> stri;
+        //try and catch to prevent input errors
+        try {
+            choiceTopic = stoi(stri);
+        }
+        catch (...) {
+            choiceTopic = 666;
+        }
+
+        if (choiceTopic == 1) {
+            fileReader fr("Project1Data");
+            g = fr.g;
+            break;
+        }
+        else if (choiceTopic == 2) {
+            fileReader fr("Project1Data");
+            g = fr.g;
+            break;
+        }
+        else {
+            std::cout << "\nInvalid topic.\n"
+                         "[1] Real data.\n"
+                         "[2] Test data.\n"
+                         "> ";
+        }
+    }
+
     mainMenu();
 }
 

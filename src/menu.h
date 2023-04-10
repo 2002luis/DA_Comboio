@@ -20,7 +20,7 @@ public:
     /**
      * @brief Main menu of all the program with all the functionalities
      *
-     * Complexity O()
+     * Complexity O(1)
      */
     void mainMenu();
     /**
